@@ -130,6 +130,12 @@ h1 { max-width: 660px; margin-bottom: 21px; color: var(--ink); font-size: clamp(
 .included-list li { display: flex; align-items: flex-start; gap: 9px; color: #40564e; font-size: 11px; }
 .included-list li span { color: #739b38; font-weight: 900; }
 .price-small { margin: 12px 0 0; color: #8b958d; font-size: 9px; line-height: 1.55; text-align: center; }
+.upi-payment { margin-top: 20px; padding: 16px; border: 1px solid #e3e6dd; border-radius: 14px; background: #f6f7f1; }
+.upi-payment h3 { margin: 0 0 8px; color: var(--ink); font-size: 14px; }
+.upi-payment p { margin: 0; color: #68786f; font-size: 10px; line-height: 1.6; }
+.upi-qr { display: block; width: min(230px, 100%); height: auto; margin: 14px auto; border: 1px solid #e1e4dc; border-radius: 10px; background: #fff; }
+.upi-payment .button { min-height: 45px; padding-inline: 12px; font-size: 11px; }
+.upi-payment .upi-payment-note { margin-top: 10px; color: #7c8981; font-size: 9px; }
 .sample-section { background: var(--white); }
 .sample-grid { display: grid; grid-template-columns: 1fr .8fr; align-items: center; gap: 80px; }
 .sample-window { overflow: hidden; border: 1px solid #e1e4da; border-radius: 19px; background: #fff; box-shadow: var(--shadow); }

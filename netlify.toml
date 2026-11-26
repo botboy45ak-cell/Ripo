@@ -1,2 +1,4 @@
+# Static HTML, CSS, and JavaScript; there is no framework build step.
 [build]
+  command = ""
   publish = "public"

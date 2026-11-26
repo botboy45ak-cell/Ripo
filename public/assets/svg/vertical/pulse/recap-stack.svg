@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1920" viewBox="0 0 1080 1920">
+<defs>
+<linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0" stop-color="#FF5F9E"/>
+<stop offset="1" stop-color="#69F4D2"/>
+</linearGradient>
+</defs>
+<path d="M 110.4 1171.2 H 969.6 L 993.6 1195.2 V 1617.6 L 969.6 1641.6 H 110.4 L 86.4 1617.6 V 1195.2 Z" fill="#160E2A" fill-opacity="0.96" stroke="#FF5F9E" stroke-width="4"/>
+<path d="M 104.4 1179.2 H 340.42" stroke="#69F4D2" stroke-width="7" stroke-linecap="square"/>
+<circle cx="965.6" cy="1198.2" r="8.47" fill="#69F4D2"/>
+<circle cx="249.7" cy="1298.21" r="30.58" fill="#69F4D2" fill-opacity="0.98"/>
+<path d="M 235.94 1298.21 l 9.17 9.78 l 19.87 -22.01" fill="none" stroke="#160E2A" stroke-width="3.37" stroke-linecap="round" stroke-linejoin="round" opacity="1"/>
+<circle cx="249.7" cy="1408.75" r="30.58" fill="#FF5F9E" fill-opacity="0.98"/>
+<circle cx="249.7" cy="1519.3" r="30.58" fill="#FF5F9E" fill-opacity="0.98"/>
+</svg>

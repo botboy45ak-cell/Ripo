@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1920" viewBox="0 0 1080 1920">
+<defs>
+<linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0" stop-color="#FF5F9E"/>
+<stop offset="1" stop-color="#69F4D2"/>
+</linearGradient>
+</defs>
+<path d="M 121.2 1401.6 H 958.8 L 982.8 1425.6 V 1608 L 958.8 1632 H 121.2 L 97.2 1608 V 1425.6 Z" fill="#160E2A" fill-opacity="0.96" stroke="#FF5F9E" stroke-width="4"/>
+<path d="M 115.2 1409.6 H 345.17" stroke="#69F4D2" stroke-width="7" stroke-linecap="square"/>
+<circle cx="954.8" cy="1428.6" r="5" fill="#69F4D2"/>
+<path d="M 292.03 1516.8 H 805.68" fill="none" stroke="#D7C5E8" stroke-width="8.75" stroke-linecap="round" stroke-linejoin="round" opacity="0.65"/>
+<circle cx="292.03" cy="1516.8" r="43.78" fill="#69F4D2"/>
+<circle cx="292.03" cy="1516.8" r="66.82" fill="none" stroke="#69F4D2" stroke-width="5.83"/>
+<circle cx="292.03" cy="1588.22" r="4" fill="#FF5F9E" fill-opacity="0.95"/>
+<circle cx="548.86" cy="1516.8" r="27.65" fill="#26163F" stroke="#D7C5E8" stroke-width="5.18"/>
+<circle cx="548.86" cy="1588.22" r="4" fill="#D7C5E8" fill-opacity="0.95"/>
+<circle cx="805.68" cy="1516.8" r="27.65" fill="#26163F" stroke="#D7C5E8" stroke-width="5.18"/>
+<circle cx="805.68" cy="1588.22" r="4" fill="#D7C5E8" fill-opacity="0.95"/>
+</svg>

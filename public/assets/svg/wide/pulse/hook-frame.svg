@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+<defs>
+<linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0" stop-color="#FF5F9E"/>
+<stop offset="1" stop-color="#69F4D2"/>
+</linearGradient>
+</defs>
+<path d="M 193 129.6 H 1727 L 1747.2 149.8 V 293 L 1727 313.2 H 193 L 172.8 293 V 149.8 Z" fill="#160E2A" fill-opacity="0.96" stroke="#FF5F9E" stroke-width="4"/>
+<path d="M 190.8 137.6 H 613.63" stroke="#69F4D2" stroke-width="7" stroke-linecap="square"/>
+<circle cx="1719.2" cy="156.6" r="5" fill="#69F4D2"/>
+<path d="M 194.8 184.65 V 151.6 H 227.85" fill="none" stroke="#69F4D2" stroke-width="9.72" stroke-linecap="round" stroke-linejoin="round" opacity="1"/>
+<path d="M 1725.2 184.65 V 151.6 H 1692.15" fill="none" stroke="#69F4D2" stroke-width="9.72" stroke-linecap="round" stroke-linejoin="round" opacity="1"/>
+<path d="M 194.8 258.15 V 291.2 H 227.85" fill="none" stroke="#69F4D2" stroke-width="9.72" stroke-linecap="round" stroke-linejoin="round" opacity="1"/>
+<path d="M 1725.2 258.15 V 291.2 H 1692.15" fill="none" stroke="#69F4D2" stroke-width="9.72" stroke-linecap="round" stroke-linejoin="round" opacity="1"/>
+<circle cx="1526.78" cy="261.79" r="11.66" fill="#FF5F9E"/>
+</svg>

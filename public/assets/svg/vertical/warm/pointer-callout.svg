@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1920" viewBox="0 0 1080 1920">
+<defs>
+<linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0" stop-color="#FFC66B"/>
+<stop offset="1" stop-color="#FF806D"/>
+</linearGradient>
+</defs>
+<rect x="118.8" y="863.81" width="362.23" height="228.1" fill="#251916" rx="34" fill-opacity="0.96" stroke="#FFC66B" stroke-width="4" stroke-linejoin="round"/>
+<rect x="136.8" y="881.81" width="9.06" height="192.1" fill="#FF806D" rx="7" fill-opacity="0.98"/>
+<circle cx="453.03" cy="890.81" r="5" fill="#FF806D"/>
+<circle cx="205.74" cy="977.86" r="31.93" fill="#FFC66B" fill-opacity="0.95"/>
+<circle cx="205.74" cy="977.86" r="12.55" fill="#251916"/>
+<path d="M 481.03 982.42 C 632.66 878.74, 752.11 801.6, 853.2 697.92" fill="none" stroke="#FF806D" stroke-width="9.4" stroke-linecap="round" stroke-linejoin="round" opacity="1"/>
+<circle cx="853.2" cy="697.92" r="14.26" fill="#251916" stroke="#FFC66B" stroke-width="5.18"/>
+<circle cx="853.2" cy="697.92" r="5.18" fill="#FFC66B"/>
+<path d="M 841.54 681.07 L 853.2 697.92 L 873.94 690.14" fill="none" stroke="#FF806D" stroke-width="5.83" stroke-linecap="round" stroke-linejoin="round" opacity="1"/>
+</svg>

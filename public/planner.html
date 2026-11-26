@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b1020">
+  <meta name="description" content="Offline storyboard planner bundled with the Cueframe short-form visual cue kit prototype.">
+  <title>Cueframe Planner — offline storyboard builder</title>
+  <style>
+    :root{color-scheme:dark;--bg:#090e1a;--panel:#111a2b;--panel2:#17243a;--line:#2a3a52;--ink:#f4f8ff;--muted:#acbbce;--cyan:#69dff4;--lime:#c6f17b;--violet:#b994ff;--pink:#ff6b9e;--amber:#ffc66b;--radius:20px}
+    *{box-sizing:border-box}body{margin:0;background:radial-gradient(900px 520px at 88% -6%,rgba(80,104,175,.18),transparent 65%),var(--bg);color:var(--ink);font:16px/1.5 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}button,input,select,textarea{font:inherit}button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,a:focus-visible{outline:3px solid var(--cyan);outline-offset:3px}a{color:var(--cyan)}.shell{width:min(1120px,calc(100% - 34px));margin:auto}.header{padding:22px 0 16px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(255,255,255,.08)}.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink);font-weight:900}.mark{width:35px;height:35px;border-radius:12px;background:linear-gradient(135deg,var(--cyan),var(--lime));color:#091321;display:grid;place-items:center;font-weight:900}.offline{border:1px solid rgba(198,241,123,.35);background:rgba(198,241,123,.08);border-radius:999px;padding:6px 11px;font-size:.76rem;color:#e5f8c2;font-weight:800}.hero{padding:38px 0 24px;max-width:760px}.eyebrow{color:var(--cyan);text-transform:uppercase;letter-spacing:.15em;font-size:.76rem;font-weight:850}.hero h1{font-size:clamp(2.1rem,5vw,3.8rem);line-height:1.02;letter-spacing:-.055em;margin:12px 0}.hero p{color:var(--muted);font-size:1.02rem;margin:0}.privacy{margin-top:14px;font-size:.82rem;color:#c8d5e5;border-left:3px solid var(--lime);padding:8px 12px;background:rgba(198,241,123,.06);border-radius:0 10px 10px 0}.rights-note{margin-top:8px;padding:8px 12px;border-left:3px solid var(--amber);border-radius:0 10px 10px 0;background:rgba(255,198,107,.055);color:#d7c7a8;font-size:.78rem}
+    .builder{display:grid;grid-template-columns:320px minmax(0,1fr);gap:17px;align-items:start;margin:20px 0 26px}.controls,.output{border:1px solid var(--line);border-radius:var(--radius);background:linear-gradient(180deg,rgba(18,27,45,.97),rgba(13,21,35,.97));box-shadow:0 20px 55px rgba(0,0,0,.18)}.controls{padding:18px;position:sticky;top:14px}.controls h2{font-size:1.05rem;margin:0 0 15px}.field{display:grid;gap:7px;margin:0 0 13px}.field label{color:var(--muted);font-size:.75rem;text-transform:uppercase;letter-spacing:.08em;font-weight:800}.field input,.field select{width:100%;min-height:44px;border:1px solid #354760;background:#0c1422;color:var(--ink);border-radius:12px;padding:10px 12px}.field small{color:#92a3b8;font-size:.75rem}.radio-row{display:grid;grid-template-columns:1fr 1fr;gap:8px}.radio-label{position:relative;display:block;cursor:pointer}.radio-label input{position:absolute;opacity:0;pointer-events:none;width:1px;height:1px;min-width:0;min-height:0}.radio-card{display:flex;min-height:42px;align-items:center;justify-content:center;text-align:center;border:1px solid #354760;border-radius:11px;background:#0c1422;color:var(--muted);font-size:.84rem;font-weight:750;padding:7px}.radio-label input:checked+.radio-card{border-color:var(--cyan);background:rgba(105,223,244,.11);color:#e8fbff;box-shadow:inset 0 0 0 1px rgba(105,223,244,.16)}.actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:18px}.actions #sampleBtn{grid-column:1/-1}.btn{border:0;border-radius:12px;min-height:44px;padding:9px 12px;font-weight:850;cursor:pointer}.btn-primary{background:linear-gradient(120deg,var(--cyan),var(--lime));color:#091321}.btn-secondary{background:#1b2940;border:1px solid #3b4d68;color:var(--ink)}.btn:hover{filter:brightness(1.08)}.tiny-note{color:#91a2b8;font-size:.76rem;margin:12px 0 0}
+    .output{min-height:420px;padding:18px}.output-head{display:flex;align-items:flex-start;justify-content:space-between;gap:15px;border-bottom:1px solid var(--line);padding-bottom:14px;margin-bottom:14px}.output-head h2{font-size:1.25rem;line-height:1.2;letter-spacing:-.02em;margin:0 0 5px}.output-head p{font-size:.85rem;color:var(--muted);margin:0}.output-actions{display:flex;gap:7px;flex-wrap:wrap;justify-content:flex-end}.output-actions .btn{font-size:.8rem;min-height:38px}.beat-list{display:grid;gap:10px}.beat{border:1px solid #2b3d56;border-radius:16px;background:rgba(9,15,26,.72);padding:13px;display:grid;grid-template-columns:62px minmax(0,1fr) 118px;gap:12px;align-items:start}.time{border-radius:10px;background:#17243a;color:var(--cyan);font-variant-numeric:tabular-nums;text-align:center;padding:8px 4px;font-size:.78rem;font-weight:850;white-space:nowrap}.beat-main h3{font-size:.98rem;margin:0 0 5px}.beat-main .guide{font-size:.84rem;color:var(--muted);margin:0 0 9px}.beat-main label{display:block;color:#95a8c0;font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em;margin:8px 0 5px}.beat-main textarea{display:block;width:100%;min-height:56px;resize:vertical;border:1px solid #33445d;border-radius:10px;background:#0c1422;color:var(--ink);padding:9px 10px;line-height:1.45}.visual-name{font-size:.74rem;color:#dbe6f2;font-weight:750;margin-bottom:6px}.cue-thumb{position:relative;overflow:hidden;width:100%;aspect-ratio:9/16;border:1px solid #34455d;border-radius:11px;background:linear-gradient(150deg,#425c6c,#172436 68%,#654b40)}.cue-thumb.wide{aspect-ratio:16/9}.cue-thumb::before{content:"";position:absolute;left:36%;top:25%;width:27%;height:55%;border-radius:42% 42% 12% 12%;background:rgba(12,20,33,.88)}.cue-thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:fill}.cue-download{display:block;text-align:center;font-size:.72rem;font-weight:800;text-decoration:none;margin-top:6px;color:var(--cyan)}.empty{padding:38px 16px;text-align:center;color:var(--muted)}.empty strong{display:block;color:var(--ink);font-size:1.05rem;margin-bottom:5px}.support{display:grid;grid-template-columns:repeat(3,1fr);gap:11px;margin:0 0 28px}.support article{border:1px solid var(--line);background:rgba(17,26,43,.7);border-radius:15px;padding:14px}.support strong{display:block;font-size:.88rem;margin-bottom:5px}.support span{font-size:.8rem;color:var(--muted)}.footer{border-top:1px solid rgba(255,255,255,.08);padding:18px 0 30px;color:var(--muted);font-size:.8rem;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}.footer a{color:var(--muted)}
+    @media(max-width:880px){.builder{grid-template-columns:1fr}.controls{position:static}.controls-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 12px}.controls-grid .wide-field{grid-column:1/-1}.actions{margin-top:8px}}
+    @media(max-width:620px){.shell{width:min(100% - 22px,1120px)}.header{padding-top:16px}.hero{padding-top:28px}.controls,.output{padding:13px}.controls-grid{grid-template-columns:1fr}.controls-grid .wide-field{grid-column:auto}.output-head{display:block}.output-actions{justify-content:flex-start;margin-top:12px}.beat{grid-template-columns:52px minmax(0,1fr);gap:9px;padding:10px}.beat-visual{grid-column:2;display:grid;grid-template-columns:74px minmax(0,1fr);gap:8px;align-items:center}.cue-thumb{width:74px}.cue-download{margin:0;text-align:left}.support{grid-template-columns:1fr}.time{font-size:.72rem}.beat-main textarea{font-size:.88rem}}
+    @media print{body{background:#fff;color:#111}.header,.controls,.support,.footer,.output-actions,.cue-thumb,.cue-download,.privacy{display:none!important}.shell{width:100%}.hero{padding:0 0 12px}.hero p,.output-head p,.beat-main .guide,.beat-main label{color:#333}.builder{display:block;margin:0}.output{border:0;box-shadow:none;background:#fff;padding:0}.output-head{border-color:#bbb}.beat{break-inside:avoid;background:#fff;border:1px solid #bbb;grid-template-columns:60px 1fr}.time{background:#eee;color:#111}.beat-main textarea{border:0;border-bottom:1px solid #aaa;background:#fff;color:#111;min-height:40px}.beat-main h3{color:#111}}
+    @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto}}
+  </style>
+  <link rel="stylesheet" href="assets/library-theme.css">
+</head>
+<body>
+  <div class="shell">
+    <header class="header cf-site-nav"><a class="brand" href="./index.html"><span class="mark">C</span><span>Cueframe Planner</span></a><nav class="cf-nav-links" aria-label="Main navigation"><a href="./index.html">Home</a><a href="./preview.html">PNG / SVG Library</a><a href="./motion-studio.html">Motion Studio</a><a href="./samples/index.html">Video Samples</a><a href="./planner.html" aria-current="page">Planner</a></nav><span class="offline">Works offline · no account</span></header>
+    <main>
+      <section class="hero">
+        <div class="eyebrow">Storyboard builder · included prototype</div>
+        <h1>Turn a video idea into a simple edit plan.</h1>
+        <p>Choose a format and story type. Get a time-coded sequence, practical shot notes, editable narration prompts, and matching visual-cue assets.</p>
+        <div class="privacy">Your entries stay in this page. Nothing is sent to a server. Download or print the plan before closing the page.</div>
+        <div class="rights-note">Prototype asset notice: reuse rights and public licensing are not finalized.</div>
+      </section>
+      <section class="builder" aria-label="Storyboard planner">
+        <form class="controls" id="plannerForm">
+          <h2>1 · Set up your video</h2>
+          <div class="controls-grid">
+            <div class="field wide-field"><label for="topic">Video topic (optional)</label><input id="topic" name="topic" maxlength="90" placeholder="e.g., Show a faster way to organize notes"><small>Keep the idea short; you can edit the plan afterward.</small></div>
+            <div class="field"><label for="storyType">Story format</label><select id="storyType" name="storyType"><option value="howto">How-to / explainer</option><option value="demo">Product or app demo</option><option value="compare">Comparison / list</option><option value="story">Vlog / personal story</option></select></div>
+            <div class="field"><label for="duration">Target length</label><select id="duration" name="duration"><option value="15">15 seconds</option><option value="30" selected>30 seconds</option><option value="60">60 seconds</option></select></div>
+            <div class="field wide-field"><label>Project shape</label><div class="radio-row"><label class="radio-label"><input type="radio" name="ratio" value="vertical" checked><span class="radio-card">Portrait · 9:16</span></label><label class="radio-label"><input type="radio" name="ratio" value="wide"><span class="radio-card">Landscape · 16:9</span></label></div></div>
+            <div class="field wide-field"><label for="visualStyle">Visual style</label><select id="visualStyle" name="visualStyle"><option value="clear">Clear · calm and cool</option><option value="pulse">Pulse · energetic</option><option value="warm">Warm · soft and lively</option></select></div>
+          </div>
+          <div class="actions"><button class="btn btn-primary" type="submit">Build my plan</button><button class="btn btn-secondary" type="reset" id="resetBtn">Start over</button><button class="btn btn-secondary" type="button" id="sampleBtn">Load a filled example</button></div>
+          <p class="tiny-note">The plan is a starting structure, not a script guarantee. Check facts, rights, and platform rules for your own video.</p>
+        </form>
+        <section class="output" aria-live="polite" aria-labelledby="outputTitle">
+          <div class="empty" id="emptyState"><strong>Your edit plan will appear here.</strong>Choose a format and build a plan. You can edit each narration and shot note before you export it.</div>
+          <div id="planView" hidden>
+            <div class="output-head"><div><h2 id="outputTitle">A short-form edit plan</h2><p id="planSummary"></p></div><div class="output-actions"><button class="btn btn-secondary" type="button" id="downloadBtn">Download .txt</button><button class="btn btn-secondary" type="button" id="printBtn">Print / save PDF</button></div></div>
+            <div class="beat-list" id="beatList"></div>
+          </div>
+        </section>
+      </section>
+      <section class="support" aria-label="How to use the plan">
+        <article><strong>For phone editors</strong><span>Use the portrait PNGs and import them as image overlays; add your text separately.</span></article>
+        <article><strong>For desktop editors</strong><span>Use portrait or wide PNGs as a layer above the base video and adjust the duration.</span></article>
+        <article><strong>No AI or internet needed</strong><span>The planner uses built-in structures and runs locally in your browser. No account, API, or tracking.</span></article>
+      </section>
+    </main>
+    <footer class="footer"><span>Prototype tool · working name Cueframe · no personal data is transmitted</span><span><a href="index.html">Library home</a> · <a href="preview.html">PNG / SVG gallery</a> · <a href="samples/index.html">Video samples</a> · <a href="docs/START-HERE.md">Quick-start guide</a></span></footer>
+  </div>
+<script>
+  const templates={
+    howto:{
+      label:'How-to / explainer',
+      beats:[
+        {name:'Open with the outcome',guide:'Start on the result, a useful detail, or a focused question. Give the viewer one reason to keep watching.',narration:'Show the result first, then say what the viewer will learn about this topic.',shot:'Use a close crop or clear first frame; keep the main subject away from the text.',cue:'hook-frame'},
+        {name:'Set the context',guide:'Name the problem or situation in one sentence. Avoid a long introduction.',narration:'Explain when this topic matters and what is currently difficult.',shot:'Show the starting point, the materials, or the screen before the change.',cue:'chapter-tag'},
+        {name:'Show step one',guide:'Use one visible action. Let the viewer see the action while hearing the instruction.',narration:'First, describe the first small action in your process.',shot:'Show the action in a close shot or a clear screen recording.',cue:'step-1'},
+        {name:'Show the next steps',guide:'Keep steps in order. Cut pauses, but leave enough time to understand each action.',narration:'Next, explain the second action; then give the final action or key distinction.',shot:'Use the next step marker and point to one detail that matters.',cue:'step-2'},
+        {name:'Reveal the result',guide:'Return to the outcome and show what changed. Keep the proof visible.',narration:'Show the finished result and one sign that the process is complete.',shot:'Use a before/after, a finished object, or the final screen.',cue:'answer-card'},
+        {name:'Recap one takeaway',guide:'End with a single summary or next step. Avoid asking for several actions at once.',narration:'Summarize the key idea and offer one optional next step.',shot:'Hold a clean final frame long enough to read.',cue:'recap-stack'}
+      ]
+    },
+    demo:{
+      label:'Product or app demo',
+      beats:[
+        {name:'Show the useful result',guide:'Lead with the outcome, not a long brand intro. Use only a claim you can support.',narration:'Show what becomes easier or clearer in this demonstration.',shot:'Open on the finished screen, product, or action.',cue:'hook-frame'},
+        {name:'Name the friction',guide:'Describe one real task or problem the demo will address.',narration:'Explain the small task that takes too many steps or causes confusion.',shot:'Show the old workflow or the problem state.',cue:'question-card'},
+        {name:'Point to one feature',guide:'Demonstrate one feature at a time; do not rely on a tiny cursor or fast swipe.',narration:'Name the feature and explain what it does in plain language.',shot:'Use a pointer cue near the feature, not over the control itself.',cue:'pointer-callout'},
+        {name:'Show the workflow',guide:'Keep the complete action visible so people can follow along.',narration:'Describe the exact steps shown on screen.',shot:'Capture the sequence with steady framing and readable UI.',cue:'step-1'},
+        {name:'Compare the result',guide:'Show before and after fairly. Avoid implying every user will get the same result.',narration:'Point out what changed and what did not.',shot:'Use matched framing for both states.',cue:'compare-pair'},
+        {name:'Close with a helpful next step',guide:'Give one clear action or tell the viewer where to learn more.',narration:'Offer one next step without pressure or unsupported claims.',shot:'Leave a clean end frame and keep text editable.',cue:'end-card'}
+      ]
+    },
+    compare:{
+      label:'Comparison / list',
+      beats:[
+        {name:'Set the comparison',guide:'State the exact question or decision. Tell viewers what criteria you will use.',narration:'Say what you are comparing and why the comparison matters.',shot:'Show both options or a simple title card.',cue:'hook-frame'},
+        {name:'Show option one',guide:'Use the same framing and criteria for each option.',narration:'Describe the first option using one concrete observation.',shot:'Show the first item, feature, or example clearly.',cue:'step-1'},
+        {name:'Show option two',guide:'Keep the comparison fair; do not hide meaningful trade-offs.',narration:'Describe the second option using the same criterion.',shot:'Match the angle or screen area from the first option.',cue:'step-2'},
+        {name:'Name the trade-off',guide:'Explain when each option may suit a different need.',narration:'Give one advantage and one limitation for each option.',shot:'Use two side-by-side moments or a clean split screen.',cue:'compare-pair'},
+        {name:'Give a conditional takeaway',guide:'Avoid presenting a personal preference as a universal fact.',narration:'Say which option fits which situation, based on the criteria shown.',shot:'Use a simple ranking or focus cue to summarize.',cue:'rank-bars'},
+        {name:'Close with the decision rule',guide:'End with a useful rule of thumb rather than an unsupported absolute.',narration:'Summarize the choice in one sentence and offer one next step.',shot:'Keep the final visual simple and readable.',cue:'recap-stack'}
+      ]
+    },
+    story:{
+      label:'Vlog / personal story',
+      beats:[
+        {name:'Open on a moment',guide:'Start with a vivid detail or a small question, not a long greeting.',narration:'Introduce the moment or place the story is about.',shot:'Use a clear establishing image with a stable horizon.',cue:'hook-frame'},
+        {name:'Set the scene',guide:'Give just enough context for someone who was not there.',narration:'Say when or where this happened and what you were doing.',shot:'Add one context shot; avoid exposing private location details.',cue:'location-tag'},
+        {name:'Show a small detail',guide:'A close detail can make a short story feel specific and human.',narration:'Describe one sensory detail or practical choice.',shot:'Use a close-up or a short sequence of two related shots.',cue:'focus-frame'},
+        {name:'Add a turn or surprise',guide:'Give the story a change, discovery, or small payoff.',narration:'Explain what changed or what you noticed.',shot:'Cut to the moment the viewer needs to see.',cue:'question-card'},
+        {name:'Show the payoff',guide:'Return to the opening question and resolve it honestly.',narration:'Share the result or the part that stayed with you.',shot:'Use the final scene or a calm reaction shot.',cue:'answer-card'},
+        {name:'Close with one reflection',guide:'Keep the ending personal and concise; no forced engagement ask is needed.',narration:'Finish with one reflection or simple next moment.',shot:'Use a steady closing image.',cue:'end-card'}
+      ]
+    }
+  };
+  const examples={
+    howto:{topic:'Pack a school bag before bed',beats:[
+      {narration:'Tomorrow starts more calmly when the essentials are in one place.',shot:'Open on the empty bag, then show the finished bag for one second.'},
+      {narration:'Check the timetable first so you only pack what is needed tomorrow.',shot:'Place the timetable beside the bag and point to the next day.'},
+      {narration:'Add the books and notes for those classes, then put the pencil case in the same pocket.',shot:'Show the first pocket being packed; keep labels readable.'},
+      {narration:'Add the water bottle and any item that cannot be packed yet; leave a reminder by the door.',shot:'Show the remaining essentials, then place a reminder card by the handle.'},
+      {narration:'The bag is ready, and the one last-minute item has a reminder.',shot:'Show the finished bag beside the reminder, matching the opening frame.'},
+      {narration:'Timetable, class materials, essentials, reminder. That is the quick check.',shot:'Hold on the four-item recap, then end on the bag by the door.'}
+    ]},
+    demo:{topic:'Start a short reading block with a phone timer',beats:[
+      {narration:'Want to begin a reading task without planning the whole evening?',shot:'Open on the book and phone timer together; keep notifications off screen.'},
+      {narration:'Choose one small section to read, not the entire chapter.',shot:'Show the chapter heading and mark one section.'},
+      {narration:'Set a timer for a length that suits your schedule.',shot:'Point to the timer control without showing personal notifications.'},
+      {narration:'Start reading; when the timer ends, pause and decide whether to continue.',shot:'Show the timer starting, then cut to the page and a simple check-in.'},
+      {narration:'The result is a clear start and a defined stopping point, not a promise of instant focus.',shot:'Compare the blank starting page with the marked stopping point.'},
+      {narration:'Pick one section, set a time, read, and review. Adjust the length next time.',shot:'Close on the four steps in order; no app brand is required.'}
+    ]},
+    compare:{topic:'Paper grocery list or phone note?',beats:[
+      {narration:'Paper list or phone note? Compare them for a five-item grocery trip.',shot:'Show a blank paper list and a phone note side by side.'},
+      {narration:'A paper list is easy to glance at and does not need a screen.',shot:'Write three sample items on paper; use fictional items only.'},
+      {narration:'A phone note is easy to edit if the list changes.',shot:'Add or remove one sample item in a neutral notes screen.'},
+      {narration:'The choice depends on whether quick editing or screen-free checking matters more to you.',shot:'Show both options with the same five-item list.'},
+      {narration:'For a short fixed list, either can work; choose the one you will actually carry.',shot:'Use a balanced A/B comparison, not a winner badge.'},
+      {narration:'Fixed list: choose what is easiest to check. Changing list: choose what is easiest to edit.',shot:'Close with a simple two-condition summary.'}
+    ]},
+    story:{topic:'A ten-minute desk reset before studying',beats:[
+      {narration:'This is the small reset I do before sitting down to study.',shot:'Open on the desk before cleaning; avoid showing private notes.'},
+      {narration:'I clear only the space I need and keep the rest for later.',shot:'Show the desk and one study item; no room/location details.'},
+      {narration:'First, move unrelated items into one tray instead of sorting everything.',shot:'Show one tray collecting objects in a single shot.'},
+      {narration:'Then place the notebook, pen, and water within reach.',shot:'Use a close focus frame for the three items.'},
+      {narration:'The desk is ready for one task; the rest of the room can wait.',shot:'Match the opening angle and show the cleared work area.'},
+      {narration:'Clear one surface, set out what you need, and begin with one task.',shot:'End on the notebook opening; keep the final frame calm.'}
+    ]}
+  };
+  const form=document.getElementById('plannerForm');
+  const emptyState=document.getElementById('emptyState');
+  const planView=document.getElementById('planView');
+  const beatList=document.getElementById('beatList');
+  let currentPlan=[];
+  let currentMeta={};
+  function selectedValue(name){const el=form.querySelector(`[name="${name}"]:checked`);return el?el.value:''}
+  function ratio(){return selectedValue('ratio')||'vertical'}
+  function assetPath(cue){return `assets/png/${ratio()}/${document.getElementById('visualStyle').value}/${cue}.png`}
+  function formatTime(seconds){return `${String(Math.floor(seconds/60)).padStart(2,'0')}:${String(seconds%60).padStart(2,'0')}`}
+  function safeTopic(){return document.getElementById('topic').value.trim()}
+  function buildPlan(event){
+    if(event)event.preventDefault();
+    const type=document.getElementById('storyType').value;
+    const duration=Number(document.getElementById('duration').value);
+    const topic=safeTopic();
+    const data=templates[type];
+    const beats=data.beats;
+    const weights=beats.map((_,i)=>i===0?1.15:i===beats.length-1?1.05:1);
+    const total=weights.reduce((a,b)=>a+b,0);
+    let cursor=0;
+    currentPlan=beats.map((beat,index)=>{
+      const start=Math.round(cursor);
+      cursor += duration*weights[index]/total;
+      const end=index===beats.length-1?duration:Math.max(start+1,Math.round(cursor));
+      return {...beat,start,end,narration:beat.narration,shot:beat.shot};
+    });
+    currentMeta={type,label:data.label,topic,duration,ratio:ratio(),style:document.getElementById('visualStyle').value,isSample:false};
+    renderPlan();
+  }
+  function renderPlan(){
+    emptyState.hidden=true;planView.hidden=false;
+    const topic=currentMeta.topic?` · ${currentMeta.topic}`:'';
+    document.getElementById('outputTitle').textContent=currentMeta.label+topic;
+    const shape=currentMeta.ratio==='vertical'?'Portrait 9:16':'Landscape 16:9';
+    const styleName={clear:'Clear',pulse:'Pulse',warm:'Warm'}[currentMeta.style];
+    document.getElementById('planSummary').textContent=`${currentMeta.duration} seconds · ${shape} · ${styleName} style · ${currentPlan.length} beats${currentMeta.isSample?' · filled example':''}`;
+    beatList.replaceChildren();
+    currentPlan.forEach((beat,index)=>{
+      const card=document.createElement('article');card.className='beat';
+      const time=document.createElement('div');time.className='time';time.textContent=`${formatTime(beat.start)}–${formatTime(beat.end)}`;
+      const main=document.createElement('div');main.className='beat-main';
+      const title=document.createElement('h3');title.textContent=`${String(index+1).padStart(2,'0')} · ${beat.name}`;
+      const guide=document.createElement('p');guide.className='guide';guide.textContent=beat.guide;
+      const narrationLabel=document.createElement('label');narrationLabel.textContent='Narration / on-screen wording';narrationLabel.htmlFor=`narration-${index}`;
+      const narration=document.createElement('textarea');narration.id=`narration-${index}`;narration.value=beat.narration;narration.dataset.field='narration';narration.dataset.index=index;
+      const shotLabel=document.createElement('label');shotLabel.textContent='Shot / edit note';shotLabel.htmlFor=`shot-${index}`;
+      const shot=document.createElement('textarea');shot.id=`shot-${index}`;shot.value=beat.shot;shot.dataset.field='shot';shot.dataset.index=index;
+      main.append(title,guide,narrationLabel,narration,shotLabel,shot);
+      const visual=document.createElement('div');visual.className='beat-visual';
+      const visualName=document.createElement('div');visualName.className='visual-name';visualName.textContent=`Cue: ${beat.cue}`;
+      const thumb=document.createElement('div');thumb.className=`cue-thumb ${currentMeta.ratio==='wide'?'wide':''}`;
+      const img=document.createElement('img');img.src=assetPath(beat.cue);img.alt='';img.loading='lazy';thumb.append(img);
+      const link=document.createElement('a');link.className='cue-download';link.href=assetPath(beat.cue);link.download=`cueframe-${currentMeta.ratio}-${currentMeta.style}-${beat.cue}.png`;link.textContent='Download cue PNG';
+      visual.append(visualName,thumb,link);card.append(time,main,visual);beatList.append(card);
+    });
+  }
+  beatList.addEventListener('input',event=>{
+    const field=event.target.dataset.field;const index=Number(event.target.dataset.index);
+    if(field&&currentPlan[index])currentPlan[index][field]=event.target.value;
+  });
+  function asText(){
+    const lines=[`CUEFRAME VIDEO PLAN`,`Type: ${currentMeta.label}`,`Topic: ${currentMeta.topic||'(not entered)'}`,`Length: ${currentMeta.duration} seconds`,`Frame: ${currentMeta.ratio==='vertical'?'Portrait 9:16':'Landscape 16:9'}`,`Style: ${currentMeta.style}`,``];
+    currentPlan.forEach((b,i)=>{lines.push(`${String(i+1).padStart(2,'0')} | ${formatTime(b.start)}–${formatTime(b.end)} | ${b.name}`,`VISUAL CUE: ${b.cue}`,`GUIDE: ${b.guide}`,`NARRATION / WORDING: ${b.narration}`,`SHOT / EDIT: ${b.shot}`,``)});
+    lines.push('Generated locally with Cueframe Planner. Review facts, rights, and platform rules before publishing.');
+    return lines.join('\n');
+  }
+  document.getElementById('downloadBtn').addEventListener('click',()=>{
+    const blob=new Blob([asText()],{type:'text/plain;charset=utf-8'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='cueframe-video-plan.txt';document.body.append(a);a.click();a.remove();URL.revokeObjectURL(url);
+  });
+  document.getElementById('printBtn').addEventListener('click',()=>window.print());
+  document.getElementById('sampleBtn').addEventListener('click',()=>{
+    const type=document.getElementById('storyType').value;
+    const example=examples[type];
+    document.getElementById('topic').value=example.topic;
+    buildPlan();
+    currentPlan=currentPlan.map((beat,index)=>({...beat,narration:example.beats[index].narration,shot:example.beats[index].shot}));
+    currentMeta.isSample=true;
+    renderPlan();
+  });
+  form.addEventListener('submit',buildPlan);
+  form.addEventListener('reset',()=>{setTimeout(()=>{currentPlan=[];currentMeta={};planView.hidden=true;emptyState.hidden=false;},0)});
+</script>
+</body>
+</html>

@@ -1,0 +1,340 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>[YOUR NAME] — Websites for small businesses</title>
+<!--
+  ============================================================
+  EDIT ME (4 things, search for the [ ] brackets):
+  1. [YOUR NAME]        -> your name (appears 3 times)
+  2. [YOUR CITY]        -> your city
+  3. 91XXXXXXXXXX       -> your WhatsApp number (2 times, digits only, e.g. 919876543210)
+  4. hello@youremail.com -> your email
+  Also update the Instagram + GitHub links near the bottom.
+  ============================================================
+-->
+<style>
+  :root{
+    --bg:#070b14; --panel:#0d1526; --line:#1c2942;
+    --txt:#e7eef9; --mut:#93a4c3;
+    --acc:#6366f1; --acc2:#22d3ee;
+    --radius:16px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0; background:var(--bg); color:var(--txt);
+    font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+    line-height:1.65; -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1060px; margin:0 auto; padding:0 22px}
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(7,11,20,.78); backdrop-filter:blur(12px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{display:flex; align-items:center; justify-content:space-between; height:64px}
+  .logo{font-weight:800; font-size:17px; letter-spacing:.2px; text-decoration:none; color:var(--txt)}
+  .logo b{background:linear-gradient(90deg,var(--acc),var(--acc2)); -webkit-background-clip:text; background-clip:text; color:transparent}
+  nav.links a{color:var(--mut); text-decoration:none; margin-left:22px; font-size:14.5px}
+  nav.links a:hover{color:#fff}
+  @media(max-width:720px){ nav.links{display:none} }
+
+  .hero{position:relative; overflow:hidden; padding:84px 0 70px}
+  .hero::before{
+    content:""; position:absolute; inset:-30% -20% auto; height:520px;
+    background:radial-gradient(600px 300px at 25% 20%, rgba(99,102,241,.22), transparent 70%),
+               radial-gradient(500px 260px at 75% 10%, rgba(34,211,238,.14), transparent 70%);
+    pointer-events:none;
+  }
+  .badge{
+    display:inline-flex; align-items:center; gap:8px;
+    border:1px solid var(--line); background:rgba(255,255,255,.03);
+    color:var(--mut); font-size:13px; padding:7px 14px; border-radius:999px;
+  }
+  .dot{width:7px; height:7px; border-radius:50%; background:#34d399; box-shadow:0 0 10px #34d399}
+  h1{font-size:clamp(34px,5.4vw,58px); line-height:1.1; margin:22px 0 18px; letter-spacing:-1.2px}
+  h1 span{background:linear-gradient(90deg,var(--acc),var(--acc2)); -webkit-background-clip:text; background-clip:text; color:transparent}
+  .sub{color:var(--mut); font-size:18px; max-width:600px}
+  .cta{display:flex; flex-wrap:wrap; gap:14px; margin-top:32px}
+  .btn{
+    display:inline-flex; align-items:center; gap:9px;
+    padding:14px 24px; border-radius:12px; text-decoration:none;
+    font-weight:700; font-size:15.5px; border:1px solid transparent;
+    transition:transform .15s ease, box-shadow .15s ease;
+  }
+  .btn:hover{transform:translateY(-2px)}
+  .btn-main{
+    background:linear-gradient(90deg,var(--acc),var(--acc2)); color:#06121f;
+    box-shadow:0 10px 30px rgba(99,102,241,.28);
+  }
+  .btn-ghost{border-color:var(--line); color:var(--txt); background:rgba(255,255,255,.02)}
+  .stats{display:flex; flex-wrap:wrap; gap:34px; margin-top:52px}
+  .stat b{display:block; font-size:24px; letter-spacing:-.5px}
+  .stat s{display:block; text-decoration:none; color:var(--mut); font-size:13.5px}
+
+  section{padding:76px 0; border-top:1px solid var(--line)}
+  .kicker{color:var(--acc2); font-size:13px; font-weight:700; letter-spacing:2px; text-transform:uppercase}
+  h2{font-size:clamp(26px,3.6vw,38px); letter-spacing:-.8px; margin:10px 0 14px; line-height:1.15}
+  .lead{color:var(--mut); max-width:640px; margin:0 0 36px}
+
+  .grid{display:grid; gap:18px}
+  .g3{grid-template-columns:repeat(3,1fr)}
+  @media(max-width:860px){ .g3{grid-template-columns:1fr} }
+  .card{
+    background:var(--panel); border:1px solid var(--line); border-radius:var(--radius);
+    padding:26px; transition:transform .18s ease, border-color .18s ease;
+  }
+  .card:hover{transform:translateY(-4px); border-color:#2c3f66}
+  .ico{
+    width:44px; height:44px; border-radius:11px; display:grid; place-items:center;
+    font-size:21px; margin-bottom:16px;
+    background:linear-gradient(135deg, rgba(99,102,241,.22), rgba(34,211,238,.16));
+    border:1px solid var(--line);
+  }
+  .card h3{margin:0 0 8px; font-size:18px}
+  .card p{margin:0; color:var(--mut); font-size:14.5px}
+
+  /* browser mock */
+  .mock{
+    border:1px solid var(--line); border-radius:var(--radius); overflow:hidden;
+    background:var(--panel);
+  }
+  .mock-bar{display:flex; align-items:center; gap:6px; padding:11px 14px; border-bottom:1px solid var(--line); background:#0a1122}
+  .mock-bar i{width:10px; height:10px; border-radius:50%; background:#24334f; display:block}
+  .mock-url{margin-left:10px; font-size:11.5px; color:var(--mut); background:#0d1729; border:1px solid var(--line); border-radius:6px; padding:3px 10px}
+  .mock-body{padding:30px 26px; background:
+    radial-gradient(420px 200px at 20% 0%, rgba(245,158,11,.14), transparent 70%),
+    radial-gradient(420px 220px at 90% 30%, rgba(34,211,238,.10), transparent 70%);
+  }
+  .mock-hero h4{margin:0 0 10px; font-size:23px; letter-spacing:-.4px}
+  .mock-hero p{margin:0 0 16px; color:var(--mut); font-size:13.5px; max-width:420px}
+  .mock-pill{display:inline-block; background:#f59e0b; color:#1a1205; font-weight:800; font-size:12px; padding:8px 14px; border-radius:8px}
+  .mock-cards{display:flex; gap:10px; margin-top:22px; flex-wrap:wrap}
+  .mock-cards div{flex:1; min-width:110px; height:64px; border-radius:10px; border:1px solid var(--line); background:rgba(255,255,255,.03)}
+
+  .price-card{position:relative}
+  .price-card.pop{border-color:rgba(99,102,241,.65); box-shadow:0 0 0 1px rgba(99,102,241,.35), 0 20px 50px rgba(99,102,241,.12)}
+  .tag{
+    position:absolute; top:-12px; right:18px; font-size:11px; font-weight:800; letter-spacing:.6px;
+    background:linear-gradient(90deg,var(--acc),var(--acc2)); color:#06121f;
+    padding:5px 11px; border-radius:999px; text-transform:uppercase;
+  }
+  .price{font-size:32px; font-weight:800; letter-spacing:-1px; margin:6px 0 2px}
+  .price small{font-size:13px; color:var(--mut); font-weight:600; letter-spacing:0}
+  .feat{list-style:none; padding:0; margin:16px 0 0; font-size:14px; color:var(--mut)}
+  .feat li{padding:6px 0; border-bottom:1px dashed #1a2740}
+  .feat li:last-child{border-bottom:none}
+  .feat li::before{content:"✓"; color:var(--acc2); font-weight:800; margin-right:9px}
+
+  .steps{counter-reset:s}
+  .step{display:flex; gap:18px; padding:20px 0; border-bottom:1px solid var(--line)}
+  .step:last-child{border-bottom:none}
+  .num{
+    flex:0 0 40px; height:40px; border-radius:50%; display:grid; place-items:center;
+    border:1px solid var(--line); color:var(--acc2); font-weight:800; font-size:15px;
+    background:rgba(34,211,238,.06);
+  }
+  .step b{display:block; margin-bottom:2px}
+  .step p{margin:0; color:var(--mut); font-size:14.5px}
+
+  .contact-band{
+    border:1px solid var(--line); border-radius:22px; padding:46px 30px; text-align:center;
+    background:
+      radial-gradient(600px 260px at 50% 0%, rgba(99,102,241,.18), transparent 70%),
+      var(--panel);
+  }
+  .contact-band h2{margin-top:0}
+  .contact-links{display:flex; flex-wrap:wrap; gap:14px; justify-content:center; margin-top:26px}
+  footer{border-top:1px solid var(--line); padding:30px 0 40px; color:var(--mut); font-size:13.5px}
+  .foot{display:flex; flex-wrap:wrap; gap:12px; justify-content:space-between; align-items:center}
+  footer a{color:var(--mut); text-decoration:none; margin-left:16px}
+  footer a:hover{color:#fff}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="#top"><b>[YOUR NAME]</b></a>
+    <nav class="links">
+      <a href="#work">Work</a>
+      <a href="#services">Services</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#process">How it works</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <div class="wrap hero">
+    <span class="badge"><span class="dot"></span> Open for new projects in [YOUR CITY]</span>
+    <h1>I build <span>fast, affordable websites</span> that get small businesses real customers.</h1>
+    <p class="sub">One clean page. Your services, photos, prices and WhatsApp button. Live in 24 hours — starting at just ₹999. First draft is free, pay only if you like it.</p>
+    <div class="cta">
+      <a class="btn btn-main" href="https://wa.me/91XXXXXXXXXX?text=Hi%2C%20I%20saw%20your%20portfolio%20and%20want%20a%20website%20for%20my%20business">💬 WhatsApp me now</a>
+      <a class="btn btn-ghost" href="demo-cafe.html">See a live example →</a>
+    </div>
+    <div class="stats">
+      <div class="stat"><b>24 hours</b><s>Delivery for 1-page sites</s></div>
+      <div class="stat"><b>₹999</b><s>Starting price</s></div>
+      <div class="stat"><b>Free</b><s>First draft, no risk</s></div>
+      <div class="stat"><b>7 days</b><s>Free fixes &amp; support</s></div>
+    </div>
+  </div>
+
+  <section id="work">
+    <div class="wrap">
+      <p class="kicker">Recent work</p>
+      <h2>This is what your customers will see</h2>
+      <p class="lead">A real, working example built from my template. Click through — every button works, and it opens straight into WhatsApp on mobile.</p>
+      <div class="mock">
+        <div class="mock-bar">
+          <i></i><i></i><i></i>
+          <span class="mock-url">yourbusiness.in</span>
+        </div>
+        <div class="mock-body">
+          <div class="mock-hero">
+            <h4>Chai &amp; Bytes Café</h4>
+            <p>Fresh chai, fast Wi-Fi and the best snacks in Patna. Open 9 AM – 9 PM, every day.</p>
+            <span class="mock-pill">💬 Message us on WhatsApp</span>
+            <div class="mock-cards"><div></div><div></div><div></div></div>
+          </div>
+        </div>
+      </div>
+      <div class="cta">
+        <a class="btn btn-main" href="demo-cafe.html">Open the live demo →</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="wrap">
+      <p class="kicker">Services</p>
+      <h2>Everything a small business actually needs</h2>
+      <p class="lead">No bloated software, no monthly website builder fees. A clean site that loads fast, looks right on phones, and turns visitors into WhatsApp enquiries.</p>
+      <div class="grid g3">
+        <div class="card">
+          <div class="ico">⚡</div>
+          <h3>One-page business site</h3>
+          <p>Your name, services, timings, prices and a WhatsApp/call button. Delivered in 24 hours.</p>
+        </div>
+        <div class="card">
+          <div class="ico">📱</div>
+          <h3>Mobile-first design</h3>
+          <p>Most of your customers reach you from a phone. Your site will look sharp on every screen.</p>
+        </div>
+        <div class="card">
+          <div class="ico">🗺️</div>
+          <h3>Google-ready setup</h3>
+          <p>Your site goes live free on a real link, with your maps location and social links wired in.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="pricing">
+    <div class="wrap">
+      <p class="kicker">Pricing</p>
+      <h2>Simple, honest packages</h2>
+      <p class="lead">Pay 50% to start, 50% when it's live. UPI accepted. Special launch pricing for my first few clients in [YOUR CITY].</p>
+      <div class="grid g3">
+        <div class="card price-card">
+          <h3>Starter</h3>
+          <div class="price">₹999</div>
+          <small>One page · 24 hours</small>
+          <ul class="feat">
+            <li>1-page website</li>
+            <li>WhatsApp + call buttons</li>
+            <li>Mobile &amp; desktop design</li>
+            <li>Free hosting setup</li>
+            <li>2 rounds of changes</li>
+          </ul>
+        </div>
+        <div class="card price-card pop">
+          <span class="tag">Most popular</span>
+          <h3>Business</h3>
+          <div class="price">₹1,999</div>
+          <small>Up to 3 pages · 2 days</small>
+          <ul class="feat">
+            <li>Everything in Starter</li>
+            <li>Up to 3 pages (Home, Services, Contact)</li>
+            <li>Google Maps location</li>
+            <li>Social media links</li>
+            <li>Basic SEO titles &amp; description</li>
+          </ul>
+        </div>
+        <div class="card price-card">
+          <h3>Premium</h3>
+          <div class="price">₹3,499</div>
+          <small>Up to 5 pages · 3 days</small>
+          <ul class="feat">
+            <li>Everything in Business</li>
+            <li>Up to 5 pages</li>
+            <li>Photo gallery / reviews section</li>
+            <li>30 days free support</li>
+            <li>₹500/month optional maintenance</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="process">
+    <div class="wrap">
+      <p class="kicker">How it works</p>
+      <h2>You talk, I build. That's it.</h2>
+      <div class="steps">
+        <div class="step">
+          <div class="num">1</div>
+          <div><b>You message me on WhatsApp</b><p>Tell me your business name and what you do. 5 minutes, no forms.</p></div>
+        </div>
+        <div class="step">
+          <div class="num">2</div>
+          <div><b>I send a free first draft</b><p>Within 24 hours you get a real link you can open on your phone. No payment yet.</p></div>
+        </div>
+        <div class="step">
+          <div class="num">3</div>
+          <div><b>You approve, pay 50%, I finish</b><p>Changes included. Payment by UPI. Final site delivered live within 1–2 days.</p></div>
+        </div>
+        <div class="step">
+          <div class="num">4</div>
+          <div><b>Go live + 7 days of free fixes</b><p>Your site is online with a real link you can share on Instagram, Google and WhatsApp status.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" style="border-bottom:none">
+    <div class="wrap">
+      <div class="contact-band">
+        <p class="kicker">Contact</p>
+        <h2>Want a free draft of your website?</h2>
+        <p class="lead" style="margin:0 auto">Send one message with your business name. I'll reply with a working draft link — you only pay if you love it.</p>
+        <div class="contact-links">
+          <a class="btn btn-main" href="https://wa.me/91XXXXXXXXXX?text=Hi%2C%20I%20want%20a%20free%20draft%20of%20my%20business%20website">💬 WhatsApp: +91 XXXXX XXXXX</a>
+          <a class="btn btn-ghost" href="mailto:hello@youremail.com">✉️ hello@youremail.com</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <div>© <span id="yr">2026</span> [YOUR NAME] · Websites for local businesses · [YOUR CITY]</div>
+    <div>
+      <a href="https://instagram.com/yourhandle" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://github.com/yourusername" target="_blank" rel="noopener">GitHub</a>
+      <a href="demo-cafe.html">Demo</a>
+    </div>
+  </div>
+</footer>
+
+<script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
+</body>
+</html>
+

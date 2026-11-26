@@ -1,0 +1,190 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>[BUSINESS NAME] — [TAGLINE, e.g. Fresh chai, fast Wi-Fi, best snacks]</title>
+<meta name="description" content="[BUSINESS NAME] in [AREA, CITY] — [one sentence: what you offer + why choose you].">
+<!--
+  ============================================================
+  CLIENT TEMPLATE — sell this, delivered in 1–2 hours.
+  HOW TO USE FOR A NEW BUSINESS (full checklist: customize.md)
+
+  MINIMUM EDITS (all inside this file):
+  1. <title> and <meta description> above
+  2. Top comment: client name, tagline
+  3. CLASS BODY COLOR PALETTE in :root (optional, 2 lines)
+  4. HERO: h1 + paragraph
+  5. MENU sec: 6 items (name / small / price)
+  6. WHY sec: 3 cards
+  7. VISIT sec: 4 rows (timings, address, phone, payments)
+  8. MAP link: https://maps.google.com/?q=YOUR+AREA
+  9. ALL "91XXXXXXXXXX" -> client's WhatsApp number (digits only, with 91)
+  ============================================================
+-->
+<style>
+  :root{
+    --bg:#140d08; --panel:#1d130b; --line:#33200f;
+    --cream:#f7ead7; --mut:#c9ab89;
+    --acc:#f59e0b; --acc2:#fbbf24;   /* <- change these 2 colours to re-skin */
+    --radius:18px;
+  }
+  *{box-sizing:border-box}
+  body{margin:0; background:var(--bg); color:var(--cream);
+    font-family:Georgia, 'Times New Roman', serif; line-height:1.7;}
+  .wrap{max-width:980px; margin:0 auto; padding:0 22px}
+  .sans{font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}
+  header{position:sticky; top:0; z-index:50; background:rgba(20,13,8,.85);
+    backdrop-filter:blur(10px); border-bottom:1px solid var(--line);}
+  .nav{display:flex; align-items:center; justify-content:space-between; height:64px}
+  .logo{font-size:19px; font-weight:700; letter-spacing:.3px}
+  .logo span{color:var(--acc2)}
+  .nav a{color:var(--mut); text-decoration:none; font-size:14px; margin-left:20px}
+  .nav a:hover{color:var(--cream)}
+  @media(max-width:640px){ .nav .links{display:none} }
+  .hero{padding:76px 0 60px; text-align:center;
+    background:radial-gradient(640px 320px at 50% 0%, rgba(245,158,11,.16), transparent 70%);}
+  .chip{display:inline-block; font-family:ui-sans-serif,system-ui,sans-serif; font-size:12.5px;
+    letter-spacing:1.6px; text-transform:uppercase; color:var(--acc2);
+    border:1px solid var(--line); border-radius:999px; padding:7px 16px; background:rgba(245,158,11,.06);}
+  h1{font-size:clamp(38px,6.4vw,64px); line-height:1.05; margin:24px 0 14px; letter-spacing:-1px}
+  .hero p{color:var(--mut); font-size:18px; max-width:520px; margin:0 auto}
+  .btn{display:inline-flex; align-items:center; gap:9px; text-decoration:none;
+    font-family:ui-sans-serif,system-ui,sans-serif; font-weight:800; font-size:15.5px;
+    padding:15px 26px; border-radius:12px; transition:transform .15s ease;}
+  .btn:hover{transform:translateY(-2px)}
+  .btn-main{background:linear-gradient(90deg,var(--acc),var(--acc2)); color:#1a1205; box-shadow:0 12px 30px rgba(245,158,11,.25)}
+  .cta{margin-top:30px; display:flex; gap:12px; justify-content:center; flex-wrap:wrap}
+  section{padding:64px 0; border-top:1px solid var(--line)}
+  h2{font-size:clamp(26px,3.6vw,36px); margin:0 0 8px; letter-spacing:-.5px}
+  .sub{color:var(--mut); margin:0 0 34px; font-family:ui-sans-serif,system-ui,sans-serif; font-size:15px}
+  .menu{display:grid; gap:14px; grid-template-columns:1fr 1fr}
+  @media(max-width:700px){ .menu{grid-template-columns:1fr} }
+  .item{display:flex; justify-content:space-between; align-items:baseline; gap:14px;
+    border:1px solid var(--line); background:var(--panel); border-radius:14px; padding:18px 20px;}
+  .item b{font-size:17px}
+  .item small{display:block; color:var(--mut); font-family:ui-sans-serif,system-ui,sans-serif; font-size:13px}
+  .item i{font-style:normal; color:var(--acc2); font-family:ui-sans-serif,system-ui,sans-serif; font-weight:800; white-space:nowrap}
+  .why{display:grid; gap:14px; grid-template-columns:1fr 1fr 1fr}
+  @media(max-width:760px){ .why{grid-template-columns:1fr} }
+  .why div{border:1px solid var(--line); border-radius:14px; padding:22px; background:var(--panel)}
+  .why b{display:block; font-family:ui-sans-serif,system-ui,sans-serif; margin-bottom:6px}
+  .why p{margin:0; color:var(--mut); font-size:14.5px}
+  .visit{display:grid; grid-template-columns:1.1fr 1fr; gap:26px; align-items:start}
+  @media(max-width:760px){ .visit{grid-template-columns:1fr} }
+  .visit-card{border:1px solid var(--line); border-radius:var(--radius); background:var(--panel); padding:26px}
+  .row{display:flex; gap:12px; padding:10px 0; border-bottom:1px dashed #2c1c0d;
+    font-family:ui-sans-serif,system-ui,sans-serif; font-size:14.5px}
+  .row:last-child{border-bottom:none}
+  .row b{flex:0 0 92px; color:var(--acc2)}
+  .row span{color:var(--mut)}
+  .map{border:1px solid var(--line); border-radius:var(--radius); min-height:260px;
+    background:radial-gradient(300px 160px at 30% 30%, rgba(245,158,11,.12), transparent 70%),
+      repeating-linear-gradient(0deg, #1d130b 0 34px, #241809 34px 36px),
+      repeating-linear-gradient(90deg, transparent 0 34px, rgba(245,158,11,.06) 34px 36px);
+    display:grid; place-items:center; text-align:center;}
+  .map div{padding:20px}
+  .map b{display:block; font-family:ui-sans-serif,system-ui,sans-serif; margin-bottom:4px}
+  .map p{margin:0 0 14px; color:var(--mut); font-family:ui-sans-serif,system-ui,sans-serif; font-size:13.5px}
+  .band{border:1px solid var(--line); border-radius:22px; padding:44px 28px; text-align:center;
+    background:radial-gradient(560px 240px at 50% 0%, rgba(245,158,11,.14), transparent 70%), var(--panel);}
+  .band p{color:var(--mut); margin:0 auto 24px; max-width:440px; font-family:ui-sans-serif,system-ui,sans-serif}
+  .band .cta{margin-top:0}
+  footer{border-top:1px solid var(--line); padding:26px 0 40px; font-family:ui-sans-serif,system-ui,sans-serif;
+    color:var(--mut); font-size:13px; text-align:center}
+  footer a{color:var(--mut)}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <div class="logo">[BUSINESS NAME]</div>
+    <div class="links sans">
+      <a href="#menu">Services</a>
+      <a href="#why">Why us</a>
+      <a href="#visit">Visit</a>
+    </div>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <span class="chip">[AREA] · [CITY]</span>
+    <h1>[Big hook line — e.g. Fresh chai, fast Wi-Fi, and zero rush.]</h1>
+    <p>[One sentence about who this is for and why they'll love it.]</p>
+    <div class="cta">
+      <a class="btn btn-main" href="https://wa.me/91XXXXXXXXXX?text=Hi%2C%20I%27d%20like%20to%20know%20more%20about%20your%20services">💬 Message us on WhatsApp</a>
+      <a class="btn" style="border:1px solid var(--line); color:var(--cream); font-family:ui-sans-serif,system-ui,sans-serif; font-weight:700; font-size:15.5px" href="#menu">See the menu</a>
+    </div>
+  </div>
+</div>
+
+<section id="menu">
+  <div class="wrap">
+    <h2>[Menu / Services]</h2>
+    <p class="sub">[Short line — e.g. Everything under ₹100. Fresh every day.]</p>
+    <div class="menu">
+      <div class="item"><div><b>[Item 1]</b><small>[Short description]</small></div><i>₹00</i></div>
+      <div class="item"><div><b>[Item 2]</b><small>[Short description]</small></div><i>₹00</i></div>
+      <div class="item"><div><b>[Item 3]</b><small>[Short description]</small></div><i>₹00</i></div>
+      <div class="item"><div><b>[Item 4]</b><small>[Short description]</small></div><i>₹00</i></div>
+      <div class="item"><div><b>[Item 5]</b><small>[Short description]</small></div><i>₹00</i></div>
+      <div class="item"><div><b>[Item 6]</b><small>[Short description]</small></div><i>₹00</i></div>
+    </div>
+  </div>
+</section>
+
+<section id="why">
+  <div class="wrap">
+    <h2>Why [customers] choose us</h2>
+    <p class="sub">[One line about your promise.]</p>
+    <div class="why">
+      <div><b>[⚡ Benefit 1]</b><p>[One sentence.]</p></div>
+      <div><b>[🪑 Benefit 2]</b><p>[One sentence.]</p></div>
+      <div><b>[💰 Benefit 3]</b><p>[One sentence.]</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="visit">
+  <div class="wrap">
+    <h2>Come say hi</h2>
+    <p class="sub">[One line on how to find you.]</p>
+    <div class="visit">
+      <div class="visit-card sans">
+        <div class="row"><b>Timings</b><span>[9:00 AM – 9:00 PM, every day]</span></div>
+        <div class="row"><b>Address</b><span>[Full address]</span></div>
+        <div class="row"><b>Phone</b><span>[+91 XXXXX XXXXX]</span></div>
+        <div class="row"><b>Payments</b><span>[Cash · UPI · Cards]</span></div>
+      </div>
+      <div class="map">
+        <div>
+          <b>Find us easily</b>
+          <p>[Area], [City]</p>
+          <a class="btn btn-main" href="https://maps.google.com/?q=YOUR+AREA+URL+ENCODED" target="_blank" rel="noopener">Open in Google Maps</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap" style="padding-bottom:64px">
+  <div class="band">
+    <h2 style="margin-top:0">[Closing offer — e.g. Reserve your table]</h2>
+    <p>[One reassuring line about replying fast / no obligation.]</p>
+    <div class="cta">
+      <a class="btn btn-main" href="https://wa.me/91XXXXXXXXXX?text=Hi%2C%20I%27d%20like%20to%20know%20more">💬 WhatsApp: [number]</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">[BUSINESS NAME] · [CITY] · © <span id="yr">2026</span></div>
+</footer>
+
+<script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
+</body>
+</html>
+

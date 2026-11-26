@@ -1,0 +1,19 @@
+{
+  "name": "cueframe-asset-builder",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Local build and validation tools for Cueframe assets and Motion Studio",
+  "license": "UNLICENSED",
+  "scripts": {
+    "build:motion": "esbuild motion-studio-src.js --bundle --minify --format=iife --target=es2020 --outfile=../motion-studio.bundle.js",
+    "test:motion": "node test_motion_studio.cjs"
+  },
+  "dependencies": {
+    "@resvg/resvg-js": "2.6.2",
+    "gifenc": "^1.0.3"
+  },
+  "devDependencies": {
+    "esbuild": "^0.25.12",
+    "jsdom": "^26.1.0"
+  }
+}

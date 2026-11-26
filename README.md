@@ -1,42 +1,42 @@
-# Tutor Setup — pilot project
+# Cueframe Creator Library — website prototype
 
-A static sales experiment for a one-time setup service aimed at **independent tutors**: a class-information page, editable reply templates, and a follow-up sheet the tutor controls, with a written handover instead of a live session.
+The repository's current static-site source is `public/`. Its homepage is a review build for Cueframe, a creator visual library that connects a transparent PNG/SVG gallery, experimental Motion Studio, two sample video loops, and an offline storyboard planner. Cueframe is still a prototype: public reuse terms and licensing are not finalized, and this is not an approved commercial launch.
 
-This is not a proven business and does not guarantee income. The site does not use the user's personal WhatsApp number. Visitors can submit an inbound request through a Netlify form or open the supplied Instagram profile. The form collects only the tutor's name, email, subject, optional area, and consent, and asks visitors not to submit student or sensitive information. No response is sent automatically.
+## Current site
 
-## Preview locally
+- `public/index.html` — Cueframe library hub.
+- `public/preview.html` — searchable gallery of 16 cue designs, three styles, and portrait/wide ratios (96 PNGs and 96 SVGs).
+- `public/motion-studio.html` — browser-based layered motion editor; the bundle is `public/motion-studio.bundle.js`.
+- `public/planner.html` — local storyboard planner.
+- `public/samples/index.html` — two green-key MP4 examples. They have no audio; photos and sound effects are not included.
+- `public/downloads/` — static v0.1 review ZIP, separate from Motion Studio and not an open-license pack.
+- `products/cueframe/` — editable product source, tooling, research, and prototype documentation.
+- `public/tutor/` — preserved legacy Tutor Setup pages, no longer the homepage and marked as an archive.
+
+The Cueframe artwork is procedural vector geometry created for this prototype. Do not claim that its files are openly licensed or universally reusable. `products/cueframe/docs/LICENSE-DRAFT.txt` is a draft, not an approved license. Real-phone use and import/playback in a target editor remain unverified.
+
+## Preview and validate locally
 
 From the repository root:
 
 ```sh
-python3 -m http.server 8000 --directory public
+python3 -m http.server 8000 --bind 0.0.0.0 --directory public
+npm ci --prefix products/cueframe/tools
+npm --prefix products/cueframe/tools run build:motion
+npm --prefix products/cueframe/tools run test:motion
+python3 products/cueframe/tools/validate_bundle.py
 ```
 
-Open `http://localhost:8000`. `public/tutor-demo.html` is an interactive sample with fictional data; demo actions are not saved.
+Open the server root for the Cueframe hub. The static pages use relative links and have been checked at widths from 320 to 1440 pixels. Automated tests and headless-browser checks do not establish real-phone or target-editor compatibility.
 
-## Manual Netlify setup before public launch
+## Hosting status
 
-1. Review the offer, pilot price, Instagram profile, written-only workflow, and privacy wording in `public/`.
-2. Connect the Ripo repository to Netlify after the branch is merged (or use a branch preview). The included `netlify.toml` sets the publish directory to `public` with no build command.
-3. Enable Netlify form detection and deploy. The static `pilot-request` form should appear in Netlify Forms.
-4. In **Forms → Submission notifications**, add the Gmail address you want to receive enquiries at. If Netlify asks for confirmation, open that confirmation email and approve it. Send a test form submission and confirm it arrives.
-5. Do not use GitHub Pages for this commercial sales page; GitHub's Pages limits prohibit free hosting for an online business or a site primarily facilitating commercial transactions. Recheck Netlify's current plan/usage terms before relying on it.
-6. This project is inbound-only. Do not research prospects, send emails or DMs, or follow up. The form does not auto-reply; Instagram is only a profile link and its DMs are not accessible in this chat. The user must explicitly authorize any specific response before it is sent. Any service communication should remain written/asynchronous; no call or in-person meeting is included.
+`netlify.toml` still names `public/` as its publish directory. The GitHub Pages API returned 404 during this task, so a live GitHub Pages configuration or deployment has **not** been confirmed. Changes on this branch do not by themselves establish that a public site has been published. Confirm the intended hosting setup and domain before announcing a live URL.
 
-## Project files
+## Archived Tutor Setup pilot
 
-- `public/index.html` — service offer and Netlify enquiry form.
-- `public/tutor-demo.html` — interactive mock tracker and reply snippets with synthetic data.
-- `public/privacy.html` — form/privacy notice.
-- `public/thanks.html` — post-submission confirmation page.
-- `public/assets/styles.css` — responsive styles.
-- `public/assets/site.js` — year and Instagram link configuration.
-- `public/assets/demo.js` — demo-only filters, sample row, and copy buttons.
-- `public/assets/config.js` — public Instagram profile link; no secrets or private phone number.
-- `offer/market-check.md` — desk research and inbound-only validation caveats.
-- `offer/outreach.md` — inbound-only contact boundaries; no outreach templates.
-- `offer/lead-tracker.csv` — blank tracker for voluntary inbound enquiries.
+The former Tutor Setup site has been moved, with its relative asset layout, under `public/tutor/`. Its pages retain the original service offer, Netlify form markup, FamApp QR, and fictional-data demo; they are not linked from the Cueframe navigation. The pages are marked `noindex` and have an archive notice. The archive is preserved for reference, not a Cueframe checkout or sales path. Do not reuse its QR for Cueframe.
 
-## Important limits
+The original Tutor Setup notes describe an unvalidated ₹999 one-time pilot, no guaranteed results, manually checked UPI payments, and a Netlify form that needs deployment/dashboard setup for submissions and notifications. They also caution against using GitHub Pages for that commercial service page. Keep that legacy flow separate from the Cueframe prototype and verify current host terms before deploying it.
 
-The ₹999 pilot price is a hypothesis, not a verified local market rate. A paying customer still requires a real buyer, an agreed scope, delivery, and payment. The FamApp UPI QR sends payments outside this site; there is no gateway checkout or automatic payment verification, so the owner must confirm payments in FamApp. The Netlify enquiry form must be enabled in the Netlify dashboard; notifications also require a recipient to be configured. Instagram DMs cannot be accessed from this chat. No messages are read or sent without the user's explicit request and approval. There are no confirmed leads, customer commitments, or revenue.
+The `offer/` directory contains the original Tutor Setup research and planning files; it has not been replaced by the Cueframe website.

@@ -1,12 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://tutor-enquiry-setup.netlify.app/</loc>
-  </url>
-  <url>
-    <loc>https://tutor-enquiry-setup.netlify.app/tutor-demo.html</loc>
-  </url>
-  <url>
-    <loc>https://tutor-enquiry-setup.netlify.app/privacy.html</loc>
-  </url>
+  <url><loc>https://botboy45ak-cell.github.io/Ripo/</loc></url>
+  <url><loc>https://botboy45ak-cell.github.io/Ripo/preview.html</loc></url>
+  <url><loc>https://botboy45ak-cell.github.io/Ripo/motion-studio.html</loc></url>
+  <url><loc>https://botboy45ak-cell.github.io/Ripo/samples/index.html</loc></url>
+  <url><loc>https://botboy45ak-cell.github.io/Ripo/planner.html</loc></url>
 </urlset>

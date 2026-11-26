@@ -1,7 +1,16 @@
+import json
 from html import escape
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[3] / 'public'
+SITE_BASE = 'https://botboy45ak-cell.github.io/Ripo'
+SOCIAL_IMAGE = f'{SITE_BASE}/assets/images/handykit-social.jpg'
+
+
+def public_url(path):
+    parent = Path(path).parent.as_posix()
+    route = '/' if parent == '.' else f'/{parent}/'
+    return f'{SITE_BASE}{route}'
 
 TOOLS = [
     ('image-resize', 'Resize image', 'Images', 'Set an exact width and height, or resize by percentage while keeping the shape.', '↔', 'Resize', 'Choose a photo, enter its new dimensions, and download the resized copy.', 'image/*', True),
@@ -57,9 +66,25 @@ def card(tool, pre='../../'):
 def write_page(path, title, description, body, depth, tool_key=None, accept='', multiple=False):
     script = '../' * depth + 'assets/js/app.js'
     rootlink = '../' * depth
+    canonical = public_url(path)
+    full_title = f'{title} · HandyKit'
     data = f' data-tool="{escape(tool_key)}" data-accept="{escape(accept)}" data-multiple="{str(multiple).lower()}"' if tool_key else ''
+    schema = {
+        '@context': 'https://schema.org',
+        '@type': 'WebApplication' if tool_key else 'CollectionPage',
+        'name': title,
+        'description': description,
+        'url': canonical,
+    }
+    if tool_key:
+        schema.update({
+            'applicationCategory': 'UtilitiesApplication',
+            'operatingSystem': 'Any',
+            'isAccessibleForFree': True,
+        })
+    schema_json = json.dumps(schema, ensure_ascii=False).replace('<', r'\u003c')
     html = f'''<!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#f4f0e8"><meta name="description" content="{escape(description)}"><title>{escape(title)} · HandyKit</title><link rel="stylesheet" href="{rootlink}assets/css/site.css"><script type="module" src="{script}"></script></head>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#f4f0e8"><meta name="description" content="{escape(description)}"><meta name="robots" content="index,follow,max-image-preview:large"><link rel="canonical" href="{escape(canonical)}"><meta property="og:type" content="website"><meta property="og:site_name" content="HandyKit"><meta property="og:title" content="{escape(full_title)}"><meta property="og:description" content="{escape(description)}"><meta property="og:url" content="{escape(canonical)}"><meta property="og:image" content="{SOCIAL_IMAGE}"><meta property="og:image:type" content="image/jpeg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="HandyKit everyday file tools: a PDF, photo and simple browser tools"><meta property="og:locale" content="en_US"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="{escape(full_title)}"><meta name="twitter:description" content="{escape(description)}"><meta name="twitter:image" content="{SOCIAL_IMAGE}"><meta name="twitter:image:alt" content="HandyKit everyday file tools: a PDF, photo and simple browser tools"><title>{escape(full_title)}</title><link rel="stylesheet" href="{rootlink}assets/css/site.css"><script type="application/ld+json">{schema_json}</script><script type="module" src="{script}"></script></head>
 <body{data}>{site_header(depth)}<main>{body}</main>{footer(depth)}</body></html>'''
     file = ROOT / path
     file.parent.mkdir(parents=True, exist_ok=True)
@@ -107,7 +132,21 @@ for category, (slug, heading, desc, eyebrow) in CATEGORIES.items():
 for t in TOOLS:
     tool_page(t)
 
+# Keep crawler directives and URLs aligned with the current published toolbox.
+def write_search_files():
+    routes = ['/', '/tools/']
+    routes.extend(f'/tools/{slug}/' for slug, *_ in CATEGORIES.values())
+    routes.extend(f'/tools/{tool[0]}/' for tool in TOOLS)
+    urls = ''.join(f'  <url><loc>{escape(SITE_BASE + route)}</loc></url>\n' for route in routes)
+    sitemap = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + urls + '</urlset>\n'
+    (ROOT / 'sitemap.xml').write_text(sitemap, encoding='utf-8')
+    (ROOT / 'robots.txt').write_text(f'User-agent: *\nAllow: /\n\nSitemap: {SITE_BASE}/sitemap.xml\n', encoding='utf-8')
+    (ROOT / '.nojekyll').write_text('', encoding='utf-8')
+
+
+write_search_files()
+
 # Root public site notes.
-readme = '''# HandyKit — Everyday file tools\n\nHandyKit is a static prototype of a browser-based file toolbox. It is being built in stages; every tool page explains what it does and any format or device limitations.\n\n## Tools currently in the directory\n\n- Images: resize, compress, convert, crop/rotate, people-background removal, custom form photo/signature sizing, metadata removal, and photos-to-slideshow.\n- PDF: photos-to-PDF, merge, split/extract, rotate/reorder/delete pages, image-based compression, and PDF-to-images.\n- Quick helpers: ZIP/unzip, QR code, word counter, text cleaner, and JSON formatter.\n\n## Privacy and limits\n\nImage, PDF, and utility operations are designed to run in the browser on the user's device. Local AI background removal uses a person-segmentation model; it is not a universal object cut-out and may be slower on phones. PDF compression rasterizes pages, so the compressed copy will not retain selectable text. ZIP, video, and PDF work can use significant memory. The site does not claim official photo/signature sizes; users should enter current dimensions and file limits from the relevant form.\n\nNo file-format conversion is done by renaming an extension. The relevant tool decodes and writes a new output format. An exact target file size may not be possible without visible quality loss.\n\n## Local preview and build\n\nServe the static site from the repository root:\n\n```sh\npython3 -m http.server 8000 --bind 0.0.0.0 --directory public\n```\n\nBuild local vendor bundles and the PDF worker from the repository root:\n\n```sh\nnpm ci --prefix products/file-tools/tools\nnpm --prefix products/file-tools/tools run build\n```\n\nThe assets and app source live in `products/file-tools/`. Third-party licenses are listed in `public/THIRD-PARTY-NOTICES.txt`.\n\n## Archived projects\n\nCueframe remains available under [`cueframe/`](cueframe/). The old Tutor Setup pages remain under [`tutor/`](tutor/) as an archive.\n'''
+readme = '''# HandyKit — Everyday file tools\n\nHandyKit is a static prototype of a browser-based file toolbox. It is being built in stages; every tool page explains what it does and any format or device limitations.\n\n## Tools currently in the directory\n\n- Images: resize, compress, convert, crop/rotate, people-background removal, custom form photo/signature sizing, metadata removal, and photos-to-slideshow.\n- PDF: photos-to-PDF, merge, split/extract, rotate/reorder/delete pages, image-based compression, and PDF-to-images.\n- Quick helpers: ZIP/unzip, QR code, word counter, text cleaner, and JSON formatter.\n\n## Privacy and limits\n\nImage, PDF, and utility operations are designed to run in the browser on the user's device. Local AI background removal uses a person-segmentation model; it is not a universal object cut-out and may be slower on phones. PDF compression rasterizes pages, so the compressed copy will not retain selectable text. ZIP, video, and PDF work can use significant memory. The site does not claim official photo/signature sizes; users should enter current dimensions and file limits from the relevant form.\n\nNo file-format conversion is done by renaming an extension. The relevant tool decodes and writes a new output format. An exact target file size may not be possible without visible quality loss.\n\n## Local preview and build\n\nServe the static site from the repository root:\n\n```sh\npython3 -m http.server 8000 --bind 0.0.0.0 --directory public\n```\n\nBuild local vendor bundles and the PDF worker from the repository root:\n\n```sh\nnpm ci --prefix products/file-tools/tools\nnpm --prefix products/file-tools/tools run build\n```\n\nThe assets and app source live in `products/file-tools/`. Third-party licenses are listed in `public/THIRD-PARTY-NOTICES.txt`.\n\n## Publishing and search\n\nGitHub Pages publishes the `public/` folder from `main` using `.github/workflows/deploy-pages.yml`. The default project-site URL is `https://botboy45ak-cell.github.io/Ripo/`. `robots.txt` and `sitemap.xml` are generated with the HandyKit routes. After the first successful deployment, submit the sitemap in Google Search Console; indexing and ranking are not guaranteed.\n\n## Archived projects\n\nCueframe remains available under [`cueframe/`](cueframe/). The old Tutor Setup pages remain under [`tutor/`](tutor/) as an archive.\n'''
 (ROOT / 'README.md').write_text(readme, encoding='utf-8')
 print(f'Generated {len(TOOLS)} individual tool pages and 4 directory/category pages.')

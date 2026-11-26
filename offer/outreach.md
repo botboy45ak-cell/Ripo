@@ -1,35 +1,18 @@
-# First-customer outreach: independent tutors
+# Inbound contact handling — no outreach
 
-Keep this one-to-one and respectful. Start with an in-person introduction or a normal call where appropriate. **Ask before sending a WhatsApp sample.** Do not scrape numbers, mass-message, or continue after a no.
+This file is the active contact policy for the tutor-setup pilot. The user wants inbound contact only and has said they will not approach tutors, meet anyone, or talk with people online.
 
-## In-person / call opener (Hinglish)
+## Published contact paths
 
-> Namaste, main independent tutors ke liye ek simple enquiry setup bana raha hoon—class details ka mobile page, fees/timing ke ready replies, aur follow-up ke liye ek simple sheet. Kya aapko enquiries ka reply ya follow-up manage karne mein kabhi dikkat hoti hai? Agar relevant lage, main 2-minute ka sample dikha sakta hoon.
+- The Netlify form is for voluntary enquiries. Submissions are stored in the site's Netlify account only after the site is deployed with form detection enabled. Email notifications require a recipient to be configured and confirmed in Netlify.
+- The Instagram link opens the user's public profile. It does not send a DM, capture messages, or make Instagram messages visible in this chat.
 
-## English version
+## Boundaries
 
-> Hi, I’m testing a small setup for independent tutors: one mobile class-info page, editable replies for common questions, and a simple follow-up sheet. Does handling new enquiries or remembering the next follow-up take time for you? If it’s relevant, I can show a two-minute sample.
+- Do not search for prospects, email tutors, send Instagram DMs, or follow up with anyone. Publicly listed contact details are not permission to initiate contact.
+- Do not read the user's Gmail or Instagram messages unless the user asks for that specific task.
+- Do not automatically reply to a form submission or message. If the user asks for help with an inbound enquiry, prepare a truthful draft for review; do not send it without explicit authorization for that specific message and recipient.
+- Do not agree to custom scope, prices, deadlines, guarantees, or delivery on the user's behalf. Do not request passwords or student records.
+- Do not promise more students, admissions, rankings, sales, or income.
 
-## Permission before WhatsApp
-
-> May I send you the sample on this number? I’ll send one message only. If it isn’t useful, just say so and I won’t follow up.
-
-Only send the sample if they say yes. If they decline, thank them and stop.
-
-## Offer after interest
-
-> The pilot is ₹999 one time for one tutor: one page, up to five editable reply templates, a follow-up sheet template, and a short handover. It does not guarantee admissions or Google rankings. You keep your accounts and decide what to publish. If you’re interested, I’ll write the exact scope and timing first.
-
-This is a proposed test price, not a proven local rate. Be willing to adjust the scope or price based on real conversations; do not misrepresent experience or invent testimonials.
-
-## What to ask before quoting
-
-- What do parents usually ask first?
-- Where do enquiries arrive today?
-- How do you remember who needs a follow-up?
-- What class details are already public?
-- Would this small setup be useful enough to pay for? What would it need to include?
-
-## Simple follow-up rule
-
-If someone gave explicit permission for one follow-up, send one short check-in at the agreed time. Respect “no,” silence, or an opt-out. The goal is to learn, not to pressure.
+The website and links can collect or surface an inbound request, but they do not create a buyer or fulfill the service. If the user chooses to proceed, any customer communication must remain written/asynchronous; no call or in-person meeting is part of the offer.

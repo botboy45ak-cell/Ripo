@@ -104,8 +104,8 @@
           <article class="offer-card offer-card-featured">
             <div class="card-number">04</div>
             <div class="offer-icon lilac" aria-hidden="true">◎</div>
-            <h3>Walk-through & handover</h3>
-            <p>A short session to test the links together, show you how to update details and leave you with the files.</p>
+            <h3>Written handover</h3>
+            <p>A short guide shows how to update the details, test the links and use the files—no live session required.</p>
             <span class="card-foot">No passwords sent to me</span>
           </article>
         </div>
@@ -123,11 +123,11 @@
         <div class="steps-list">
           <article class="step-item">
             <span class="step-count">1</span>
-            <div><h3>Agree the scope</h3><p>Share your real class details and decide what should be public. We confirm the price before work starts.</p></div>
+            <div><h3>Agree the scope in writing</h3><p>Share only the class details you want public. The owner confirms scope and price in writing before any work starts.</p></div>
           </article>
           <article class="step-item">
             <span class="step-count">2</span>
-            <div><h3>Review a draft</h3><p>Check the page, saved replies and tracker. You approve the wording and test every link.</p></div>
+            <div><h3>Review a draft</h3><p>Review the page, saved replies and tracker asynchronously. Approve the wording and test every link using the written handover.</p></div>
           </article>
           <article class="step-item">
             <span class="step-count">3</span>
@@ -153,7 +153,7 @@
             <li><span>✓</span> One-page class information site</li>
             <li><span>✓</span> Up to five editable reply templates</li>
             <li><span>✓</span> Follow-up sheet template</li>
-            <li><span>✓</span> One short handover session</li>
+            <li><span>✓</span> Written handover guide</li>
             <li><span>✓</span> 7 days for small corrections to the delivered setup</li>
           </ul>
           <a class="button button-lime button-full" href="#contact">Ask about the pilot <span aria-hidden="true">→</span></a>
@@ -191,7 +191,8 @@
         </div>
         <div class="faq-list">
           <details><summary>Will this guarantee more students?</summary><p>No. It only helps present class information and organize replies/follow-ups. Admissions depend on many things outside this setup.</p></details>
-          <details><summary>Do I have to give you my passwords?</summary><p>No. You keep control of your accounts. If a setting needs changing, we do it together while you stay signed in.</p></details>
+          <details><summary>Do I have to give you my passwords?</summary><p>No. You keep control of your accounts. The setup is designed for written instructions and files you control; no account password is needed.</p></details>
+          <details><summary>Do we need a call or meeting?</summary><p>No live call or in-person meeting is included. Scope, review and handover are intended to be handled in writing.</p></details>
           <details><summary>Where is student information stored?</summary><p>This public site does not collect or store student enquiries. The tracker is a template for your own account. Only enter information you need, and protect access to your file.</p></details>
           <details><summary>Will you send WhatsApp messages to parents?</summary><p>No. The reply templates are for you to review and send. Only message people who have asked to hear from you or given permission, and respect opt-outs.</p></details>
           <details><summary>Can you promise first-page Google ranking?</summary><p>No. Nobody should promise that. This pilot does not include SEO or ad management.</p></details>
@@ -203,19 +204,26 @@
       <div class="container contact-card">
         <div class="contact-copy">
           <p class="eyebrow eyebrow-light">Want to test the pilot?</p>
-          <h2>Tell me what you teach.<br>We’ll agree the scope first.</h2>
-          <p>Submit only your own contact details here. The form opens WhatsApp with a draft message; nothing is sent automatically.</p>
+          <h2>Share a few details.<br>Agree the scope in writing.</h2>
+          <p>Use the form for an inbound request. After deployment, submissions are stored in the site owner’s Netlify account; email alerts require separate setup. The owner may choose to reply in writing. There is no automatic response.</p>
           <div class="contact-assurance"><span aria-hidden="true">✓</span> No payment is taken on this website.</div>
         </div>
-        <form class="contact-form" id="pilot-form">
+        <form class="contact-form" name="pilot-request" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" action="/thanks.html">
+          <input type="hidden" name="form-name" value="pilot-request">
+          <p class="honeypot"><label>Leave this empty: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
           <label for="contact-name">Your name</label>
-          <input id="contact-name" name="name" autocomplete="name" required maxlength="80" placeholder="e.g. Riya Sharma">
+          <input id="contact-name" name="name" autocomplete="name" required maxlength="80" placeholder="Your name">
+          <label for="contact-email">Your email</label>
+          <input id="contact-email" name="email" type="email" autocomplete="email" required maxlength="120" placeholder="you@example.com">
           <label for="contact-role">What do you teach?</label>
           <input id="contact-role" name="subject" required maxlength="100" placeholder="e.g. Class 8–10 Maths">
           <label for="contact-area">Your area (optional)</label>
           <input id="contact-area" name="area" maxlength="80" placeholder="e.g. Kankarbagh">
-          <button class="button button-lime button-full" type="submit">Prepare WhatsApp enquiry <span aria-hidden="true">↗</span></button>
-          <p class="form-status" id="form-status" role="status" aria-live="polite">Your WhatsApp number must be configured before this can open a chat.</p>
+          <label class="consent-field"><input type="checkbox" name="consent" value="yes" required> <span>I agree my details may be used to reply to this request. Please don’t include student or sensitive personal data.</span></label>
+          <button class="button button-lime button-full" type="submit">Send setup enquiry <span aria-hidden="true">→</span></button>
+          <p class="privacy-note">The form is processed by Netlify and submissions are stored in the site owner’s Netlify account. <a href="privacy.html">Privacy details</a>.</p>
+          <a class="instagram-link" data-instagram-link href="https://www.instagram.com/justnotmade1/" target="_blank" rel="noopener noreferrer">Open @justnotmade1 on Instagram <span aria-hidden="true">↗</span></a>
+          <p class="privacy-note">Instagram messages are not collected by this form or automatically forwarded.</p>
         </form>
       </div>
     </section>
@@ -224,7 +232,7 @@
   <footer class="site-footer">
     <div class="container footer-inner">
       <a class="brand brand-footer" href="index.html"><span class="brand-mark" aria-hidden="true">T</span><span>Tutor<span class="brand-light">Setup</span></span></a>
-      <p>A small, honest pilot for independent tutors. Built as a static demo; no tracking or backend.</p>
+      <p>A small, honest pilot for independent tutors. No tracking; enquiry submissions are processed by Netlify after deployment.</p>
       <span class="footer-note">© <span id="year">2026</span> · Tutor Setup pilot</span>
     </div>
   </footer>

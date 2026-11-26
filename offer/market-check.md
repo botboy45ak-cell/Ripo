@@ -1,6 +1,7 @@
 # Market check: a small tutor-enquiry setup
 
 **Checked:** 26 November 2026 · **Area considered:** Patna/Bihar, based on the earlier project context.
+
 **Purpose:** choose a low-cost offer to test—not claim that a market is empty or that income is guaranteed.
 
 ## What the desk research suggests
@@ -11,26 +12,26 @@
 4. **Generic catalog software has free competitors too.** Home-seller/WhatsApp catalog tools advertise free storefronts. Merely making another menu/catalog site is not a defensible differentiator.
 5. **Hosting policy matters.** GitHub's official Pages limits say Pages is not intended or allowed as free hosting to run an online business or a site primarily facilitating commercial transactions. Keep the source in GitHub, but deploy this sales page only to a host whose current terms allow that use. Netlify's official Free-plan announcement says commercial projects are allowed; its current pricing page describes 300 credits per month and says projects pause at the limit, so recheck its terms and limits before relying on it.
 
-## Decision: test a service, not another SaaS
+## Decision: test a narrow, asynchronous service—not another SaaS
 
-The narrow hypothesis is a **done-with-you setup for one-person tutors** who do not want a full coaching CRM:
+The current offer is a hypothesis for independent tutors who do not want a full coaching CRM. It can be delivered with written details and an asynchronous review, without a live call or in-person meeting:
 
 - one-page class information page;
 - up to five editable WhatsApp reply templates;
 - a spreadsheet structure for the tutor's own follow-up list;
-- a short handover, with the tutor controlling every account and file.
+- a written handover guide, with the tutor controlling every account and file.
 
-**Pilot price shown on the site: ₹999 once.** This is only a starting price hypothesis. Before promising it to anyone, confirm the scope and ask whether the tutor would actually pay. Do not promise more students, admissions, rankings, or revenue.
+**Pilot price shown on the site: ₹999 once.** This is only a starting price hypothesis, not a validated local rate. Do not promise more students, admissions, rankings, or revenue. A site visit or submitted form alone does not prove willingness to pay.
 
-## Validate before adding features
+## Inbound-only validation and limitations
 
-1. Make a small list of 10–15 independent tutors or one-person classes using public business contact details or in-person introductions. Do not scrape personal contact data.
-2. Ask about the current enquiry/follow-up process. Show the fictional demo only if they are interested.
-3. Ask permission before sending a sample over WhatsApp. WhatsApp's policy says people should have given their number and opted in to subsequent messages; respect opt-outs and avoid unsolicited/bulk messaging.
-4. Seek **one paid pilot**, with scope and payment terms agreed in writing before doing the custom work. A free sample can be a short preview, not a full unpaid setup.
-5. If 10–15 real conversations produce no paid commitment, stop building and change the offer or buyer. If one or two tutors pay and use it, learn what they valued before expanding.
+1. Before launch, deploy the static site with `public/` as the publish directory, enable Netlify form detection, configure and confirm an email notification recipient, and test with the owner's own address.
+2. Keep the Instagram link as a profile link. It does not capture or forward DMs, and Instagram messages are not accessible in this chat.
+3. Do not email prospects, send DMs, run follow-ups, or approach tutors. Wait only for voluntary inbound enquiries through the published channels.
+4. A submission is a weak signal, not a sale. There is no automatic reply, checkout, or payment processing; the owner must choose whether to respond and agree any work. The assistant must not send a reply or commit to terms without explicit authorization.
+5. If there is little or no relevant traffic, no conclusion about demand can be drawn. If the owner does not wish to handle written customer communication and delivery, this service cannot reliably convert an enquiry into revenue.
 
-This is a validation rule, not a prediction of conversion. The agent can make the demo and templates; the owner still needs to speak with prospects, deliver the setup, and collect payment through their own chosen method.
+This is an inbound-only experiment, not a prediction of conversion. Income still depends on a real buyer, an agreed scope, delivery, and payment. No leads, commitments, or revenue are established by the website alone.
 
 ## Sources reviewed
 
@@ -43,7 +44,12 @@ This is a validation rule, not a prediction of conversion. The agent can make th
 - [PingClass — tuition-centre management software](https://www.pingclass.in/)
 - [SabkaBiz — free catalogue and WhatsApp ordering offer](https://www.sabkabiz.com/)
 - [WhatsApp Business Messaging Policy](https://business.whatsapp.com/policy)
+- [GitHub Pages limits](https://docs.github.com/en/pages/getting-started-with-github-pages/github-pages-limits)
+- [Netlify Forms setup](https://docs.netlify.com/manage/forms/setup/)
+- [Netlify form notifications](https://docs.netlify.com/manage/forms/notifications/)
+- [Netlify Free-plan announcement (commercial projects)](https://www.netlify.com/blog/introducing-netlify-free-plan/)
+- [Netlify current Free/Personal pricing comparison](https://www.netlify.com/pricing/personal-vs-free/)
 
 ## Confidence and caveats
 
-This is a quick online desk check. Search results and provider pages are incomplete, change over time, and can contain promotional claims. It cannot establish local competition, actual prices paid, or customer demand. The only meaningful test is a real conversation followed by a paid pilot.
+This is a quick online desk check. Search results and provider pages are incomplete, change over time, and can contain promotional claims. It cannot establish local competition, actual prices paid, or customer demand. The offer and price remain unvalidated; only a real paid delivery would demonstrate a sale.

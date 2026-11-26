@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://ripo-e20f.netlify.app/sitemap.xml
+Sitemap: https://tutor-enquiry-setup.netlify.app/sitemap.xml

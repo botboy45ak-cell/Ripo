@@ -28,7 +28,7 @@ The current offer is a hypothesis for independent tutors who do not want a full 
 1. Before launch, deploy the static site with `public/` as the publish directory, enable Netlify form detection, configure and confirm an email notification recipient, and test with the owner's own address.
 2. Keep the Instagram link as a profile link. It does not capture or forward DMs, and Instagram messages are not accessible in this chat.
 3. Do not email prospects, send DMs, run follow-ups, or approach tutors. Wait only for voluntary inbound enquiries through the published channels.
-4. A submission is a weak signal, not a sale. There is no automatic reply, checkout, or payment processing; the owner must choose whether to respond and agree any work. The assistant must not send a reply or commit to terms without explicit authorization.
+4. A submission is a weak signal, not a sale. There is no automatic reply, hosted checkout, or automatic payment confirmation. The FamApp UPI QR sends payment outside the website and must be checked manually; the owner must agree scope and handle delivery. The assistant must not reply or commit to terms without explicit authorization.
 5. If there is little or no relevant traffic, no conclusion about demand can be drawn. If the owner does not wish to handle written customer communication and delivery, this service cannot reliably convert an enquiry into revenue.
 
 This is an inbound-only experiment, not a prediction of conversion. Income still depends on a real buyer, an agreed scope, delivery, and payment. No leads, commitments, or revenue are established by the website alone.

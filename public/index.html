@@ -164,6 +164,13 @@
           </ul>
           <a class="button button-lime button-full" href="#contact">Ask about the pilot <span aria-hidden="true">→</span></a>
           <p class="price-small">Domain, printing and any paid third-party service are not included. No ads or ranking promises.</p>
+          <div class="upi-payment">
+            <h3>Pay ₹999 with FamApp UPI</h3>
+            <p>Pay only after the setup scope is agreed in writing. Scan the QR and enter ₹999, or use the button on a phone. Check the recipient name shown by your UPI app before confirming.</p>
+            <img class="upi-qr" src="assets/fampay-upi-qr.png" width="696" height="696" alt="FamApp UPI payment QR. Enter ₹999 after confirming the setup scope.">
+            <a class="button button-dark button-full" href="upi://pay?pa=7004262071%40fam&amp;am=999&amp;cu=INR&amp;tn=Tutor%20Setup%20Pilot">Open UPI app to pay ₹999 <span aria-hidden="true">↗</span></a>
+            <p class="upi-payment-note">Payment goes directly through UPI, not through this website. It is not confirmed automatically here; keep your transaction reference and include it in the enquiry form.</p>
+          </div>
         </article>
       </div>
     </section>
@@ -211,8 +218,8 @@
         <div class="contact-copy">
           <p class="eyebrow eyebrow-light">Want to test the pilot?</p>
           <h2>Share a few details.<br>Agree the scope in writing.</h2>
-          <p>Use the form for an inbound request. After deployment, submissions are stored in the site owner’s Netlify account; email alerts require separate setup. The owner may choose to reply in writing. There is no automatic response.</p>
-          <div class="contact-assurance"><span aria-hidden="true">✓</span> No payment is taken on this website.</div>
+          <p>Use the form to request the pilot or send your details after payment. Submissions are stored in the site owner’s Netlify account when form detection is enabled. The owner may choose to reply in writing; there is no automatic response.</p>
+          <div class="contact-assurance"><span aria-hidden="true">✓</span> UPI payments are handled in your payment app, not processed by this site.</div>
         </div>
         <form class="contact-form" name="pilot-request" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" action="/thanks.html">
           <input type="hidden" name="form-name" value="pilot-request">
@@ -225,7 +232,9 @@
           <input id="contact-role" name="subject" required maxlength="100" placeholder="e.g. Class 8–10 Maths">
           <label for="contact-area">Your area (optional)</label>
           <input id="contact-area" name="area" maxlength="80" placeholder="e.g. Kankarbagh">
-          <label class="consent-field"><input type="checkbox" name="consent" value="yes" required> <span>I agree my details may be used to reply to this request. Please don’t include student or sensitive personal data.</span></label>
+          <label for="payment-reference">UPI transaction reference (if you paid)</label>
+          <input id="payment-reference" name="payment_reference" inputmode="numeric" maxlength="40" placeholder="Optional — never enter your UPI PIN or OTP">
+          <label class="consent-field"><input type="checkbox" name="consent" value="yes" required> <span>I agree my details may be used to reply and, if I provide it, match my UPI payment reference. Please don’t include student or sensitive personal data.</span></label>
           <button class="button button-lime button-full" type="submit">Send setup enquiry <span aria-hidden="true">→</span></button>
           <p class="privacy-note">The form is processed by Netlify and submissions are stored in the site owner’s Netlify account. <a href="privacy.html">Privacy details</a>.</p>
           <a class="instagram-link" data-instagram-link href="https://www.instagram.com/justnotmade1/" target="_blank" rel="noopener noreferrer">Open @justnotmade1 on Instagram <span aria-hidden="true">↗</span></a>

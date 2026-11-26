@@ -1,0 +1,19 @@
+{
+  "name": "handykit-static-toolbox",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Build tooling for the static, browser-local HandyKit file tools site",
+  "scripts": {
+    "build": "node build.mjs"
+  },
+  "dependencies": {
+    "@mediapipe/selfie_segmentation": "0.1.1675465747",
+    "fflate": "0.8.3",
+    "pdf-lib": "1.17.1",
+    "pdfjs-dist": "4.10.38",
+    "qrcode": "1.5.4"
+  },
+  "devDependencies": {
+    "esbuild": "0.25.12"
+  }
+}

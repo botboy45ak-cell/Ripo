@@ -1,23 +1,36 @@
-# Cueframe creator library · prototype notes
+# HandyKit — Everyday file tools
 
-Cueframe is a review build for an experimental library of transparent creator cues and browser-based planning/motion tools. It is not an approved commercial release, and reuse terms and a public license have not been finalized. Do not assume the downloadable assets are open-licensed or universally reusable.
+HandyKit is a static prototype of a browser-based file toolbox. It is being built in stages; every tool page explains what it does and any format or device limitations.
 
-## Explore
+## Tools currently in the directory
 
-- [Library hub](index.html)
-- [Search the PNG/SVG collection](preview.html) — 16 original cue designs, three styles, two aspect ratios.
-- [Open Motion Studio](motion-studio.html) — a separate experimental editor; its exports and the static kit are distinct.
-- [Build a storyboard](planner.html) — runs locally in your browser.
-- [Watch the sample loops](samples/index.html) — two short green-key videos, with no audio.
-- [Start here](docs/START-HERE.md) · [Motion Studio guide](docs/motion-studio.md) · [Phone workflow](docs/mobile.md) · [Desktop workflow](docs/desktop.md) · [Universal workflow](docs/universal.md)
+- Images: resize, compress, convert, crop/rotate, people-background removal, custom form photo/signature sizing, metadata removal, and photos-to-slideshow.
+- PDF: photos-to-PDF, merge, split/extract, rotate/reorder/delete pages, image-based compression, and PDF-to-images.
+- Quick helpers: ZIP/unzip, QR code, word counter, text cleaner, and JSON formatter.
 
-## Included in this prototype
+## Privacy and limits
 
-- 96 transparent PNG overlays and 96 SVG sources (16 cues × 3 visual styles × 2 ratios).
-- Two sample MP4s for preview; no photos, sound effects, music, or stock footage.
-- A local storyboard planner, separate from the experimental Motion Studio.
-- A v0.1 review ZIP in `downloads/`; it is not a finished commercial pack or a rights-cleared open library.
+Image, PDF, and utility operations are designed to run in the browser on the user's device. Local AI background removal uses a person-segmentation model; it is not a universal object cut-out and may be slower on phones. PDF compression rasterizes pages, so the compressed copy will not retain selectable text. ZIP, video, and PDF work can use significant memory. The site does not claim official photo/signature sizes; users should enter current dimensions and file limits from the relevant form.
 
-The vector artwork was created for this prototype. The draft terms in `docs/LICENSE-DRAFT.txt` are not approved. Check the final rights and terms before using, publishing, or redistributing any files. Target-device and target-editor import/playback remain unverified.
+No file-format conversion is done by renaming an extension. The relevant tool decodes and writes a new output format. An exact target file size may not be possible without visible quality loss.
 
-The former Tutor Setup pages are preserved separately under [`tutor/`](tutor/), marked as an archive, and excluded from the Cueframe navigation. Its Netlify form and payment QR do not belong to Cueframe.
+## Local preview and build
+
+Serve the static site from the repository root:
+
+```sh
+python3 -m http.server 8000 --bind 0.0.0.0 --directory public
+```
+
+Build local vendor bundles and the PDF worker from the repository root:
+
+```sh
+npm ci --prefix products/file-tools/tools
+npm --prefix products/file-tools/tools run build
+```
+
+The assets and app source live in `products/file-tools/`. Third-party licenses are listed in `public/THIRD-PARTY-NOTICES.txt`.
+
+## Archived projects
+
+Cueframe remains available under [`cueframe/`](cueframe/). The old Tutor Setup pages remain under [`tutor/`](tutor/) as an archive.

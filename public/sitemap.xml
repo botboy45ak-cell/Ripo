@@ -1,8 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://botboy45ak-cell.github.io/Ripo/</loc></url>
-  <url><loc>https://botboy45ak-cell.github.io/Ripo/preview.html</loc></url>
-  <url><loc>https://botboy45ak-cell.github.io/Ripo/motion-studio.html</loc></url>
-  <url><loc>https://botboy45ak-cell.github.io/Ripo/samples/index.html</loc></url>
-  <url><loc>https://botboy45ak-cell.github.io/Ripo/planner.html</loc></url>
+  <url><loc>https://botboy45ak-cell.github.io/Ripo/tools/</loc></url>
+  <url><loc>https://botboy45ak-cell.github.io/Ripo/tools/images/</loc></url>
+  <url><loc>https://botboy45ak-cell.github.io/Ripo/tools/pdf/</loc></url>
+  <url><loc>https://botboy45ak-cell.github.io/Ripo/tools/quick/</loc></url>
+  <url><loc>https://botboy45ak-cell.github.io/Ripo/tools/image-resize/</loc></url>
+  <url><loc>https://botboy45ak-cell.github.io/Ripo/tools/image-compress/</loc></url>
+  <url><loc>https://botboy45ak-cell.github.io/Ripo/tools/image-convert/</loc></url>
+  <url><loc>https://botboy45ak-cell.github.io/Ripo/tools/crop-rotate/</loc></url>
+  <url><loc>https://botboy45ak-cell.github.io/Ripo/tools/remove-background/</loc></url>
+  <url><loc>https://botboy45ak-cell.github.io/Ripo/tools/form-photo/</loc></url>
+  <url><loc>https://botboy45ak-cell.github.io/Ripo/tools/remove-metadata/</loc></url>
+  <url><loc>https://botboy45ak-cell.github.io/Ripo/tools/slideshow/</loc></url>
+  <url><loc>https://botboy45ak-cell.github.io/Ripo/tools/photos-to-pdf/</loc></url>
+  <url><loc>https://botboy45ak-cell.github.io/Ripo/tools/pdf-merge/</loc></url>
+  <url><loc>https://botboy45ak-cell.github.io/Ripo/tools/pdf-split/</loc></url>
+  <url><loc>https://botboy45ak-cell.github.io/Ripo/tools/pdf-organize/</loc></url>
+  <url><loc>https://botboy45ak-cell.github.io/Ripo/tools/pdf-compress/</loc></url>
+  <url><loc>https://botboy45ak-cell.github.io/Ripo/tools/pdf-to-images/</loc></url>
+  <url><loc>https://botboy45ak-cell.github.io/Ripo/tools/zip/</loc></url>
+  <url><loc>https://botboy45ak-cell.github.io/Ripo/tools/qr-code/</loc></url>
+  <url><loc>https://botboy45ak-cell.github.io/Ripo/tools/word-counter/</loc></url>
+  <url><loc>https://botboy45ak-cell.github.io/Ripo/tools/text-cleaner/</loc></url>
+  <url><loc>https://botboy45ak-cell.github.io/Ripo/tools/json-formatter/</loc></url>
 </urlset>

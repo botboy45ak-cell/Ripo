@@ -1,6 +1,6 @@
 # HandyKit — Everyday file tools
 
-HandyKit is a static prototype of a browser-based file toolbox. It is being built in stages; every tool page explains what it does and any format or device limitations.
+HandyKit is a free browser-based toolbox for image, PDF, text, and file tasks. Each tool page explains supported formats, how to use it, and relevant limitations.
 
 ## Tools currently in the directory
 
@@ -33,8 +33,4 @@ The assets and app source live in `products/file-tools/`. Third-party licenses a
 
 ## Publishing and search
 
-Netlify publishes the `public/` folder as configured by `netlify.toml`; the primary HandyKit URL is `https://handykit-free-images-pdf-file-tools.netlify.app/`. The generated `robots.txt`, `sitemap.xml`, canonical URLs, and social metadata use that host. A separate GitHub Pages workflow is also present in the repository; do not submit its GitHub-hosted URLs under the Netlify Search Console property. After the updated Netlify deployment is live, submit `sitemap.xml` in Google Search Console; crawling and indexing are not guaranteed.
-
-## Archived projects
-
-Cueframe remains available under [`cueframe/`](cueframe/). The old Tutor Setup pages remain under [`tutor/`](tutor/) as an archive.
+Netlify publishes the `public/` folder as configured by `netlify.toml`; the primary HandyKit URL is `https://handykit-free-images-pdf-file-tools.netlify.app/`. The generated `robots.txt`, `sitemap.xml`, canonical URLs, and social metadata use that host. A separate GitHub Pages workflow is also present in the repository; do not submit its GitHub-hosted URLs under the Netlify Search Console property. Submit the production `sitemap.xml` in the matching Google Search Console property after updates; Google controls crawling and indexing, so sitemap submission does not guarantee search appearance.

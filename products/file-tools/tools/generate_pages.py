@@ -139,6 +139,104 @@ TOOL_SEO = {
     ),
 }
 
+TOOL_FAQS = {
+    'image-resize': [
+        ("How do I set image dimensions?", "Enter a new width and/or height in pixels. Leave one dimension blank to derive it from the original proportions; with proportions kept, the image fits within the requested size."),
+        ("Can I resize by percentage?", "No. This tool uses pixel dimensions rather than percentage scaling."),
+        ("Which formats can I save?", "Choose JPG, PNG, or WebP, then check the downloaded copy before using it."),
+    ],
+    'image-compress': [
+        ("Can I compress an image to 50 KB?", "Enter 50 as the maximum size in KB. The tool tries to meet that limit, but results depend on the image, format, quality, and dimensions."),
+        ("Will compression change image dimensions?", "If adjusting quality is not enough to meet the limit, the tool may also reduce the dimensions. Check the output size and appearance."),
+        ("Which formats can I save?", "The compressor offers JPG and WebP output. Compare quality before sharing or uploading the result."),
+    ],
+    'image-convert': [
+        ("Which formats can I save?", "Choose JPG, PNG, or WebP as the new image format."),
+        ("Can a JPG keep transparency?", "No. JPG is opaque; choose a background color when converting an image with transparent areas to JPG."),
+        ("Does changing the file extension convert an image?", "No. This tool decodes the image and writes a new file in the selected format; renaming alone would not convert it."),
+    ],
+    'crop-rotate': [
+        ("How do the crop values work?", "Set the left edge, top edge, width, and height as percentages of the original image, then review the result."),
+        ("Can I rotate or flip an image?", "You can rotate in quarter-turn steps and flip horizontally before saving."),
+        ("Which formats can I save?", "Choose JPG, PNG, or WebP. Check the cropped output before sharing it."),
+    ],
+    'remove-background': [
+        ("Does this remove every kind of object?", "No. The local segmentation model is designed to cut out a person; it is not a general-purpose object remover."),
+        ("Is my photo uploaded for background removal?", "The selected photo is processed in your browser. The first use may download a supporting model; the photo itself is not uploaded by this tool."),
+        ("Why can edges look rough?", "Hair, transparent items, and complex backgrounds can be difficult to separate. Inspect the cut-out before using it."),
+    ],
+    'form-photo': [
+        ("Does this tool include official form presets?", "No. Enter the current width, height, and file-size limit shown by the form or organization."),
+        ("Can I set both pixel dimensions and a KB limit?", "Yes. Enter the requested dimensions and, if needed, a maximum file size in KB; check the result against the form's rules."),
+        ("Will the image be stretched?", "Crop-to-fit is on by default to avoid stretching. You can change that option, so review the result before submitting it."),
+    ],
+    'remove-metadata': [
+        ("What metadata does this remove?", "Re-encoding removes common camera EXIF metadata. Do not treat it as a guarantee that every kind of metadata is removed from every file."),
+        ("Can saving a clean copy affect image quality?", "It can. Choose an output format and quality, then inspect the new copy before sharing it."),
+        ("Does the tool change the image itself?", "It creates a re-encoded copy in your browser; the selected original file is not overwritten."),
+    ],
+    'slideshow': [
+        ("What video format does the slideshow export?", "It exports WebM when supported by your browser. Export support can vary by browser and device."),
+        ("Can I set the pace and video shape?", "Yes. Choose seconds per photo, landscape, portrait, or square framing, and a crossfade or simple cut."),
+        ("Can I add music?", "No. The slideshow export contains no music; add audio separately in an editor if you have the rights to use it."),
+    ],
+    'photos-to-pdf': [
+        ("Can I change the photo order?", "Choose multiple photos and use the move controls to arrange their order before creating the PDF."),
+        ("Which page sizes are available?", "Choose A4, US Letter, or Fit each photo, then set orientation and margins."),
+        ("Does creating a PDF change my photos?", "No. The tool creates a separate PDF download; your selected photo files remain unchanged."),
+    ],
+    'pdf-merge': [
+        ("Can I choose the order of merged PDFs?", "Yes. Add the PDFs in your preferred order and use the move controls to arrange them before merging."),
+        ("Can I merge password-protected PDFs?", "Password-protected PDFs are not supported by this tool."),
+        ("Will the original PDFs be changed?", "No. The tool creates a new merged PDF and leaves the selected source files unchanged."),
+    ],
+    'pdf-split': [
+        ("How do I choose PDF pages?", "Enter page numbers or ranges such as 1,3-5,8. Page numbers start at 1."),
+        ("Can I extract non-consecutive pages?", "Yes. Separate page numbers and ranges with commas, then check the new PDF."),
+        ("Does splitting change the original PDF?", "No. The selected pages are saved as a new PDF; the source file is not overwritten."),
+    ],
+    'pdf-organize': [
+        ("How do I set a new page order?", "Enter every page number once in the order you want, for example 3,1,2. Leave the field blank to keep the existing order."),
+        ("Can I rotate or remove pages?", "You can rotate every page or enter page numbers/ranges to remove before saving a new copy."),
+        ("Do page numbers start at zero?", "No. The first page is page 1. Check the exported PDF before sharing it."),
+    ],
+    'pdf-compress': [
+        ("Will text remain selectable after compression?", "No. This tool rasterizes pages into images, so text in the new PDF will not remain selectable or searchable."),
+        ("Will compression always make a PDF smaller?", "No. The size change depends on the source PDF and chosen settings; compare the new file with the original."),
+        ("How do the resolution settings affect the result?", "Lower DPI and JPEG quality usually produce smaller files with less detail. Keep the original and review the compressed copy."),
+    ],
+    'pdf-to-images': [
+        ("Can I choose JPG or PNG output?", "Yes. Select JPG or PNG before converting the chosen PDF pages."),
+        ("Can I convert only some pages?", "Yes. Enter page numbers or ranges; leave the field blank to convert all pages."),
+        ("How are multiple page images downloaded?", "When more than one page is converted, the images are bundled in a ZIP file. Large PDFs can use substantial device memory."),
+    ],
+    'zip': [
+        ("Can I create and unpack ZIP files?", "Yes. Choose Create a ZIP to bundle selected files, or Unpack a ZIP to extract files from an archive."),
+        ("Will a ZIP always make my files smaller?", "No. Photos and videos are often already compressed, so archiving them may not reduce their size."),
+        ("Are my files uploaded while zipping?", "The archive is created or unpacked in your browser; the tool does not upload your selected files."),
+    ],
+    'qr-code': [
+        ("What can I put in a QR code?", "Paste a website address, short text, or contact detail. Longer content can make a denser code that is harder to scan."),
+        ("Can I change the QR image size?", "Yes. Choose an output size in pixels and a damage-correction level before generating it."),
+        ("Should I test a QR code before printing?", "Yes. Scan the downloaded image with a phone and confirm that it opens the intended content before sharing or printing."),
+    ],
+    'word-counter': [
+        ("What does the counter measure?", "It shows words, characters, characters without spaces, lines, and an estimated reading time."),
+        ("How is reading time estimated?", "The estimate uses about 200 words per minute, so it is only a guide and may not match every reader."),
+        ("Is my text sent to a server?", "No. Text is measured in the page and is not sent anywhere by this tool."),
+    ],
+    'text-cleaner': [
+        ("What cleanup actions are available?", "You can trim line spaces, remove blank or duplicate lines, sort lines, and change letter case."),
+        ("Does cleanup overwrite my original text?", "No. The cleaned result appears separately; review it and copy it if you want to use it."),
+        ("Is pasted text uploaded?", "No. The cleanup runs in this page, and the text is not sent to a server by this tool."),
+    ],
+    'json-formatter': [
+        ("Can I format or minify JSON?", "Yes. Choose readable, indented output or a minified result, then review it before copying."),
+        ("What happens if my JSON is invalid?", "The tool leaves invalid input unchanged and shows where parsing stopped so you can check the syntax."),
+        ("Is my JSON sent to a server?", "No. The JSON is processed in this page and is not sent anywhere by this tool."),
+    ],
+}
+
 NAV = '''<header class="site-header"><div class="wrap header-inner">
 <a class="brand" href="../../index.html" aria-label="HandyKit home"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 36 36"><path d="M9 9.5h14.5l5 5V27a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2V11.5a2 2 0 0 1 2-2Z"/><path d="M23.5 9.5v5h5M12 19h11M12 23h8"/></svg></span><span>HandyKit<small>Everyday file tools</small></span></a>
 <nav class="main-nav" aria-label="Main navigation"><a href="../../tools/images/">Images</a><a href="../../tools/pdf/">PDFs</a><a href="../../tools/quick/">Quick tools</a></nav><a class="header-cta" href="../../tools/">All tools <span>↗</span></a></div></header>'''
@@ -153,7 +251,7 @@ def site_header(depth):
 
 def footer(depth):
     pre = '../' * depth
-    return f'''<footer class="site-footer"><div class="wrap footer-inner"><a class="brand footer-brand" href="{pre}index.html"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 36 36"><path d="M9 9.5h14.5l5 5V27a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2V11.5a2 2 0 0 1 2-2Z"/><path d="M23.5 9.5v5h5M12 19h11M12 23h8"/></svg></span><span>HandyKit<small>Useful, not fussy</small></span></a><p>Independent browser tools. No account required. Not affiliated with government portals.</p><div class="footer-links"><a href="{pre}tools/">All tools</a><a href="{pre}README.md">About privacy & limits</a><a href="{pre}THIRD-PARTY-NOTICES.txt">Third-party notices</a><a href="{pre}cueframe/index.html">Cueframe archive</a><a href="{pre}tutor/">Tutor Setup archive</a></div><small>© 2026 HandyKit · Prototype, built with care</small></div></footer>'''
+    return f'''<footer class="site-footer"><div class="wrap footer-inner"><a class="brand footer-brand" href="{pre}index.html"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 36 36"><path d="M9 9.5h14.5l5 5V27a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2V11.5a2 2 0 0 1 2-2Z"/><path d="M23.5 9.5v5h5M12 19h11M12 23h8"/></svg></span><span>HandyKit<small>Useful, not fussy</small></span></a><p>Independent browser tools. No account required. Not affiliated with government portals.</p><div class="footer-links"><a href="{pre}tools/">All tools</a><a href="{pre}README.md">About privacy & limits</a><a href="{pre}THIRD-PARTY-NOTICES.txt">Third-party notices</a></div><small>© 2026 HandyKit · Free browser tools</small></div></footer>'''
 
 
 def card(tool, pre='../../'):
@@ -181,10 +279,32 @@ def write_page(path, title, description, body, depth, tool_key=None, accept='', 
             'applicationCategory': 'UtilitiesApplication',
             'operatingSystem': 'Any',
             'isAccessibleForFree': True,
+            'offers': {
+                '@type': 'Offer',
+                'price': '0',
+                'priceCurrency': 'INR',
+            },
         })
     schema_json = json.dumps(schema, ensure_ascii=False).replace('<', r'\u003c')
+    faq_items = TOOL_FAQS.get(tool_key, [])
+    faq_schema_json = ''
+    if faq_items:
+        faq_schema = {
+            '@context': 'https://schema.org',
+            '@type': 'FAQPage',
+            'mainEntity': [
+                {
+                    '@type': 'Question',
+                    'name': question,
+                    'acceptedAnswer': {'@type': 'Answer', 'text': answer},
+                }
+                for question, answer in faq_items
+            ],
+        }
+        faq_schema_json = json.dumps(faq_schema, ensure_ascii=False).replace('<', r'\u003c')
+    faq_script = f'<script type="application/ld+json">{faq_schema_json}</script>' if faq_schema_json else ''
     html = f'''<!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#f4f0e8"><meta name="description" content="{escape(search_description)}"><meta name="robots" content="index,follow,max-image-preview:large"><link rel="canonical" href="{escape(canonical)}"><meta property="og:type" content="website"><meta property="og:site_name" content="HandyKit"><meta property="og:title" content="{escape(full_title)}"><meta property="og:description" content="{escape(search_description)}"><meta property="og:url" content="{escape(canonical)}"><meta property="og:image" content="{SOCIAL_IMAGE}"><meta property="og:image:type" content="image/jpeg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="HandyKit everyday file tools: a PDF, photo and simple browser tools"><meta property="og:locale" content="en_US"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="{escape(full_title)}"><meta name="twitter:description" content="{escape(search_description)}"><meta name="twitter:image" content="{SOCIAL_IMAGE}"><meta name="twitter:image:alt" content="HandyKit everyday file tools: a PDF, photo and simple browser tools"><title>{escape(full_title)}</title><link rel="stylesheet" href="{rootlink}assets/css/site.css"><script type="application/ld+json">{schema_json}</script><script type="module" src="{script}"></script></head>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#f4f0e8"><meta name="description" content="{escape(search_description)}"><meta name="robots" content="index,follow,max-image-preview:large"><link rel="canonical" href="{escape(canonical)}"><meta property="og:type" content="website"><meta property="og:site_name" content="HandyKit"><meta property="og:title" content="{escape(full_title)}"><meta property="og:description" content="{escape(search_description)}"><meta property="og:url" content="{escape(canonical)}"><meta property="og:image" content="{SOCIAL_IMAGE}"><meta property="og:image:type" content="image/jpeg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="HandyKit everyday file tools: a PDF, photo and simple browser tools"><meta property="og:locale" content="en_US"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="{escape(full_title)}"><meta name="twitter:description" content="{escape(search_description)}"><meta name="twitter:image" content="{SOCIAL_IMAGE}"><meta name="twitter:image:alt" content="HandyKit everyday file tools: a PDF, photo and simple browser tools"><title>{escape(full_title)}</title><link rel="stylesheet" href="{rootlink}assets/css/site.css"><script type="application/ld+json">{schema_json}</script>{faq_script}<script type="module" src="{script}"></script></head>
 <body{data}>{site_header(depth)}<main>{body}</main>{footer(depth)}</body></html>'''
     file = ROOT / path
     file.parent.mkdir(parents=True, exist_ok=True)
@@ -207,6 +327,11 @@ def tool_page(tool):
     aside = f'''<aside class="tool-aside"><div class="side-card"><h3>What this tool does</h3><p>{escape(how)}</p><p class="privacy-note"><span aria-hidden="true">✳</span> On-device processing; this page does not upload your selected file.</p></div><div class="side-card"><h3>A small heads-up</h3><p>{'Try one file first. Very large images or PDFs can use a lot of phone memory.' if category != 'Quick' else 'Check the result before using it in a form or sharing it.'}</p><a class="text-link" href="{rootlink}tools/{category_slug}/">More {category.lower()} tools <span>→</span></a></div></aside>'''
     body = f'''<section class="wrap page-hero"><div class="breadcrumb"><a href="{rootlink}tools/">All tools</a><span>/</span><a href="{rootlink}tools/{category_slug}/">{escape(CATEGORIES[category][1])}</a><span>/</span><span>{escape(name)}</span></div><p class="eyebrow">{escape(category)} tool</p><h1>{escape(name)}</h1><p>{escape(desc)}</p></section>
 <section class="wrap tool-main"><div class="tool-layout"><section class="tool-panel" aria-label="{escape(name)} tool"><div class="tool-panel-head"><h2>{escape(button)}</h2><p>{escape(how)}</p></div><div class="tool-body">{upload}<div class="tool-status" id="toolStatus" role="status" aria-live="polite"></div><div class="progress-track" id="progressTrack" hidden><i id="progressBar"></i></div><div class="result-box" id="resultBox"><p class="result-title" id="resultTitle">Your file is ready</p><div class="result-content" id="resultContent"></div><div class="result-actions" id="resultActions"></div></div></div></section>{aside}</div></section>'''
+    faq_markup = ''.join(
+        f'<details><summary>{escape(question)}</summary><p>{escape(answer)}</p></details>'
+        for question, answer in TOOL_FAQS[slug]
+    )
+    body += f'''<section class="wrap section-block tool-faq" aria-labelledby="tool-faq-heading"><div class="section-heading"><div><p class="eyebrow">Helpful answers</p><h2 id="tool-faq-heading">Questions about {escape(name)}</h2></div></div><div class="accordion">{faq_markup}</div></section>'''
     seo_title, seo_description = TOOL_SEO[slug]
     write_page(f'tools/{slug}/index.html', name, desc, body, 2, slug, accept, multiple, seo_title=seo_title, seo_description=seo_description)
 
@@ -265,6 +390,6 @@ def write_search_files():
 write_search_files()
 
 # Root public site notes.
-readme = '''# HandyKit — Everyday file tools\n\nHandyKit is a static prototype of a browser-based file toolbox. It is being built in stages; every tool page explains what it does and any format or device limitations.\n\n## Tools currently in the directory\n\n- Images: resize, compress, convert, crop/rotate, people-background removal, custom form photo/signature sizing, metadata removal, and photos-to-slideshow.\n- PDF: photos-to-PDF, merge, split/extract, rotate/reorder/delete pages, image-based compression, and PDF-to-images.\n- Quick helpers: ZIP/unzip, QR code, word counter, text cleaner, and JSON formatter.\n\n## Privacy and limits\n\nImage, PDF, and utility operations are designed to run in the browser on the user's device. Local AI background removal uses a person-segmentation model; it is not a universal object cut-out and may be slower on phones. PDF compression rasterizes pages, so the compressed copy will not retain selectable text. ZIP, video, and PDF work can use significant memory. The site does not claim official photo/signature sizes; users should enter current dimensions and file limits from the relevant form.\n\nNo file-format conversion is done by renaming an extension. The relevant tool decodes and writes a new output format. An exact target file size may not be possible without visible quality loss.\n\n## Local preview and build\n\nServe the static site from the repository root:\n\n```sh\npython3 -m http.server 8000 --bind 0.0.0.0 --directory public\n```\n\nBuild local vendor bundles and the PDF worker from the repository root:\n\n```sh\nnpm ci --prefix products/file-tools/tools\nnpm --prefix products/file-tools/tools run build\n```\n\nThe assets and app source live in `products/file-tools/`. Third-party licenses are listed in `public/THIRD-PARTY-NOTICES.txt`.\n\n## Publishing and search\n\nNetlify publishes the `public/` folder as configured by `netlify.toml`; the primary HandyKit URL is `https://handykit-free-images-pdf-file-tools.netlify.app/`. The generated `robots.txt`, `sitemap.xml`, canonical URLs, and social metadata use that host. A separate GitHub Pages workflow is also present in the repository; do not submit its GitHub-hosted URLs under the Netlify Search Console property. After the updated Netlify deployment is live, submit `sitemap.xml` in Google Search Console; crawling and indexing are not guaranteed.\n\n## Archived projects\n\nCueframe remains available under [`cueframe/`](cueframe/). The old Tutor Setup pages remain under [`tutor/`](tutor/) as an archive.\n'''
+readme = '''# HandyKit — Everyday file tools\n\nHandyKit is a free browser-based toolbox for image, PDF, text, and file tasks. Each tool page explains supported formats, how to use it, and relevant limitations.\n\n## Tools currently in the directory\n\n- Images: resize, compress, convert, crop/rotate, people-background removal, custom form photo/signature sizing, metadata removal, and photos-to-slideshow.\n- PDF: photos-to-PDF, merge, split/extract, rotate/reorder/delete pages, image-based compression, and PDF-to-images.\n- Quick helpers: ZIP/unzip, QR code, word counter, text cleaner, and JSON formatter.\n\n## Privacy and limits\n\nImage, PDF, and utility operations are designed to run in the browser on the user's device. Local AI background removal uses a person-segmentation model; it is not a universal object cut-out and may be slower on phones. PDF compression rasterizes pages, so the compressed copy will not retain selectable text. ZIP, video, and PDF work can use significant memory. The site does not claim official photo/signature sizes; users should enter current dimensions and file limits from the relevant form.\n\nNo file-format conversion is done by renaming an extension. The relevant tool decodes and writes a new output format. An exact target file size may not be possible without visible quality loss.\n\n## Local preview and build\n\nServe the static site from the repository root:\n\n```sh\npython3 -m http.server 8000 --bind 0.0.0.0 --directory public\n```\n\nBuild local vendor bundles and the PDF worker from the repository root:\n\n```sh\nnpm ci --prefix products/file-tools/tools\nnpm --prefix products/file-tools/tools run build\n```\n\nThe assets and app source live in `products/file-tools/`. Third-party licenses are listed in `public/THIRD-PARTY-NOTICES.txt`.\n\n## Publishing and search\n\nNetlify publishes the `public/` folder as configured by `netlify.toml`; the primary HandyKit URL is `https://handykit-free-images-pdf-file-tools.netlify.app/`. The generated `robots.txt`, `sitemap.xml`, canonical URLs, and social metadata use that host. A separate GitHub Pages workflow is also present in the repository; do not submit its GitHub-hosted URLs under the Netlify Search Console property. Submit the production `sitemap.xml` in the matching Google Search Console property after updates; Google controls crawling and indexing, so sitemap submission does not guarantee search appearance.\n'''
 (ROOT / 'README.md').write_text(readme, encoding='utf-8')
 print(f'Generated {len(TOOLS)} individual tool pages and 4 directory/category pages.')

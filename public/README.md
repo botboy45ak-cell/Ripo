@@ -33,7 +33,7 @@ The assets and app source live in `products/file-tools/`. Third-party licenses a
 
 ## Publishing and search
 
-GitHub Pages publishes the `public/` folder from `main` using `.github/workflows/deploy-pages.yml`. The default project-site URL is `https://botboy45ak-cell.github.io/Ripo/`. `robots.txt` and `sitemap.xml` are generated with the HandyKit routes. After the first successful deployment, submit the sitemap in Google Search Console; indexing and ranking are not guaranteed.
+Netlify publishes the `public/` folder as configured by `netlify.toml`; the primary HandyKit URL is `https://handykit-free-images-pdf-file-tools.netlify.app/`. The generated `robots.txt`, `sitemap.xml`, canonical URLs, and social metadata use that host. A separate GitHub Pages workflow is also present in the repository; do not submit its GitHub-hosted URLs under the Netlify Search Console property. After the updated Netlify deployment is live, submit `sitemap.xml` in Google Search Console; crawling and indexing are not guaranteed.
 
 ## Archived projects
 

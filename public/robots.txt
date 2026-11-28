@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://botboy45ak-cell.github.io/Ripo/sitemap.xml
+Sitemap: https://handykit-free-images-pdf-file-tools.netlify.app/sitemap.xml

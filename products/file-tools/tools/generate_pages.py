@@ -3,7 +3,7 @@ from html import escape
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[3] / 'public'
-SITE_BASE = 'https://botboy45ak-cell.github.io/Ripo'
+SITE_BASE = 'https://handykit-free-images-pdf-file-tools.netlify.app'
 SOCIAL_IMAGE = f'{SITE_BASE}/assets/images/handykit-social.jpg'
 
 
@@ -13,7 +13,7 @@ def public_url(path):
     return f'{SITE_BASE}{route}'
 
 TOOLS = [
-    ('image-resize', 'Resize image', 'Images', 'Set an exact width and height, or resize by percentage while keeping the shape.', '↔', 'Resize', 'Choose a photo, enter its new dimensions, and download the resized copy.', 'image/*', True),
+    ('image-resize', 'Resize image', 'Images', 'Set an exact width and height while keeping the original proportions.', '↔', 'Resize', 'Choose a photo, enter its new dimensions, and download the resized copy.', 'image/*', True),
     ('image-compress', 'Compress image', 'Images', 'Make a photo smaller for sharing, email, websites, or an upload limit.', '⇣', 'Compress', 'Choose a target size in KB. The tool tries to keep the image clear while it gets smaller.', 'image/*', True),
     ('image-convert', 'Convert image format', 'Images', 'Make a real JPG, PNG, or WebP file—not just a renamed extension.', '◈', 'Convert', 'Pick the format you need. Transparency can be filled with a color when saving as JPG.', 'image/*', True),
     ('crop-rotate', 'Crop & rotate image', 'Images', 'Crop with percentages, turn a photo, or flip it before downloading.', '⌖', 'Apply changes', 'Set a simple crop box as percentages of the original image, then rotate or flip.', 'image/*', True),
@@ -40,6 +40,105 @@ CATEGORIES = {
     'Quick': ('quick', 'Quick little helpers', 'A few useful browser-based helpers for text, QR codes, JSON, and file bundles.', 'Useful extras, without extra setup'),
 }
 
+# Search titles and descriptions are separate from the visible page copy so they can
+# describe search intent without changing tool instructions or making unsupported claims.
+ALL_TOOLS_SEO = (
+    'Free Online Image, PDF & File Tools | HandyKit',
+    'Browse browser tools for resizing, compressing, and converting images; PDF page tasks; QR codes; text cleanup; JSON; and ZIP files.',
+)
+CATEGORY_SEO = {
+    'Images': (
+        'Free Image Tools Online: Resize, Compress & Convert | HandyKit',
+        'Free online image tools to resize, crop, rotate, convert, and compress photos, prepare a form-ready copy, remove common metadata, or cut out a person.',
+    ),
+    'PDF': (
+        'Free PDF Tools Online: Merge, Split & Compress | HandyKit',
+        'Free browser-based PDF tools to merge files, extract or reorder pages, compress scanned PDFs into image-based copies, and convert pages to JPG or PNG.',
+    ),
+    'Quick': (
+        'QR, Text & JSON Tools Online | HandyKit',
+        'Browser tools for QR codes, word and character counts, text cleanup, JSON formatting, and creating or unpacking ZIP archives. No account is required.',
+    ),
+}
+TOOL_SEO = {
+    'image-resize': (
+        'Resize Images Online to Exact Dimensions | HandyKit',
+        'Resize images online by setting a new width and height. Keep proportions, save a JPG, PNG, or WebP copy, and check the output dimensions before use.',
+    ),
+    'image-compress': (
+        'Compress Images Online to a Target KB Size | HandyKit',
+        'Reduce an image file size by setting a target KB limit and optional maximum width. Compare the result; exact size and image quality can vary.',
+    ),
+    'image-convert': (
+        'Convert JPG, PNG & WebP Images Online | HandyKit',
+        'Convert an image to JPG, PNG, or WebP in your browser. Choose a background color when saving a transparent image as JPG.',
+    ),
+    'crop-rotate': (
+        'Crop, Rotate & Flip Images Online | HandyKit',
+        'Crop an image with percentage controls, rotate or flip it, then download the edited copy. Check the crop before sharing.',
+    ),
+    'remove-background': (
+        'Remove a Person’s Photo Background | HandyKit',
+        'Create a transparent cutout of a person in a photo using a local model. Results can vary around hair and edges; check the image before use.',
+    ),
+    'form-photo': (
+        'Resize a Photo for a Form (Pixels & KB) | HandyKit',
+        'Resize and compress a photo or signature to pixel and KB limits you enter from a form’s current instructions. No official presets are provided.',
+    ),
+    'remove-metadata': (
+        'Remove EXIF Metadata from Images Online | HandyKit',
+        'Save a new image copy without common camera EXIF metadata. Re-encoding may affect image quality; inspect the copy before sharing.',
+    ),
+    'slideshow': (
+        'Create a Photo Slideshow Video Online | HandyKit',
+        'Turn selected photos into a short WebM slideshow in your browser. Export support depends on your browser; music is not included.',
+    ),
+    'photos-to-pdf': (
+        'Convert Photos to PDF Online | HandyKit',
+        'Combine photos into an ordered PDF with page size, orientation, and margin options. Check the exported PDF before submitting or sharing.',
+    ),
+    'pdf-merge': (
+        'Merge PDF Files Online in Your Chosen Order | HandyKit',
+        'Combine multiple PDF files in the order you choose. Password-protected PDFs are not supported; keep your original files.',
+    ),
+    'pdf-split': (
+        'Split a PDF or Extract Pages Online | HandyKit',
+        'Extract selected pages or ranges from a PDF into a new file. Enter page numbers such as 1,3-5 and check the result before sharing.',
+    ),
+    'pdf-organize': (
+        'Reorder, Rotate & Remove PDF Pages | HandyKit',
+        'Reorder, rotate, or remove PDF pages. Review the page order and rotation in the new copy before downloading.',
+    ),
+    'pdf-compress': (
+        'Compress Scanned PDFs Online (Image-Based) | HandyKit',
+        'Make a lower-resolution, image-based copy of a scanned PDF. Text becomes non-selectable and the amount of size reduction varies.',
+    ),
+    'pdf-to-images': (
+        'Convert PDF Pages to JPG or PNG | HandyKit',
+        'Convert PDF pages to JPG or PNG images. Multiple pages are bundled in a ZIP; large PDFs may need more device memory.',
+    ),
+    'zip': (
+        'Create or Unzip ZIP Files Online | HandyKit',
+        'Create a ZIP archive or unpack a ZIP file in your browser. ZIP may not reduce already-compressed photos or videos.',
+    ),
+    'qr-code': (
+        'Free QR Code Generator for Links & Text | HandyKit',
+        'Generate a downloadable QR code from a short link, text, or contact detail. Scan and verify the QR before printing or sharing.',
+    ),
+    'word-counter': (
+        'Word & Character Counter Online | HandyKit',
+        'Count words, characters, lines, and estimated reading time as you type. Text is processed in this page and is not sent anywhere.',
+    ),
+    'text-cleaner': (
+        'Clean Text: Sort Lines & Remove Duplicates | HandyKit',
+        'Trim line spaces, remove blank or duplicate lines, sort text, or change letter case. Review the output before copying it.',
+    ),
+    'json-formatter': (
+        'JSON Formatter & Validator Online | HandyKit',
+        'Format, minify, or validate JSON in your browser. Invalid JSON stays unchanged, and the error message points to where parsing stopped.',
+    ),
+}
+
 NAV = '''<header class="site-header"><div class="wrap header-inner">
 <a class="brand" href="../../index.html" aria-label="HandyKit home"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 36 36"><path d="M9 9.5h14.5l5 5V27a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2V11.5a2 2 0 0 1 2-2Z"/><path d="M23.5 9.5v5h5M12 19h11M12 23h8"/></svg></span><span>HandyKit<small>Everyday file tools</small></span></a>
 <nav class="main-nav" aria-label="Main navigation"><a href="../../tools/images/">Images</a><a href="../../tools/pdf/">PDFs</a><a href="../../tools/quick/">Quick tools</a></nav><a class="header-cta" href="../../tools/">All tools <span>↗</span></a></div></header>'''
@@ -63,17 +162,18 @@ def card(tool, pre='../../'):
     return f'''<a class="tool-card" data-tool-card href="{href}" data-search="{escape((name+' '+desc+' '+category).lower())}"><span class="tool-symbol" aria-hidden="true">{escape(symbol)}</span><span><strong>{escape(name)}</strong><p>{escape(desc)}</p></span><span class="tool-open" aria-hidden="true">↗</span></a>'''
 
 
-def write_page(path, title, description, body, depth, tool_key=None, accept='', multiple=False):
+def write_page(path, title, description, body, depth, tool_key=None, accept='', multiple=False, seo_title=None, seo_description=None):
     script = '../' * depth + 'assets/js/app.js'
     rootlink = '../' * depth
     canonical = public_url(path)
-    full_title = f'{title} · HandyKit'
+    full_title = seo_title or f'{title} | HandyKit'
+    search_description = seo_description or description
     data = f' data-tool="{escape(tool_key)}" data-accept="{escape(accept)}" data-multiple="{str(multiple).lower()}"' if tool_key else ''
     schema = {
         '@context': 'https://schema.org',
         '@type': 'WebApplication' if tool_key else 'CollectionPage',
         'name': title,
-        'description': description,
+        'description': search_description,
         'url': canonical,
     }
     if tool_key:
@@ -84,7 +184,7 @@ def write_page(path, title, description, body, depth, tool_key=None, accept='', 
         })
     schema_json = json.dumps(schema, ensure_ascii=False).replace('<', r'\u003c')
     html = f'''<!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#f4f0e8"><meta name="description" content="{escape(description)}"><meta name="robots" content="index,follow,max-image-preview:large"><link rel="canonical" href="{escape(canonical)}"><meta property="og:type" content="website"><meta property="og:site_name" content="HandyKit"><meta property="og:title" content="{escape(full_title)}"><meta property="og:description" content="{escape(description)}"><meta property="og:url" content="{escape(canonical)}"><meta property="og:image" content="{SOCIAL_IMAGE}"><meta property="og:image:type" content="image/jpeg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="HandyKit everyday file tools: a PDF, photo and simple browser tools"><meta property="og:locale" content="en_US"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="{escape(full_title)}"><meta name="twitter:description" content="{escape(description)}"><meta name="twitter:image" content="{SOCIAL_IMAGE}"><meta name="twitter:image:alt" content="HandyKit everyday file tools: a PDF, photo and simple browser tools"><title>{escape(full_title)}</title><link rel="stylesheet" href="{rootlink}assets/css/site.css"><script type="application/ld+json">{schema_json}</script><script type="module" src="{script}"></script></head>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#f4f0e8"><meta name="description" content="{escape(search_description)}"><meta name="robots" content="index,follow,max-image-preview:large"><link rel="canonical" href="{escape(canonical)}"><meta property="og:type" content="website"><meta property="og:site_name" content="HandyKit"><meta property="og:title" content="{escape(full_title)}"><meta property="og:description" content="{escape(search_description)}"><meta property="og:url" content="{escape(canonical)}"><meta property="og:image" content="{SOCIAL_IMAGE}"><meta property="og:image:type" content="image/jpeg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="HandyKit everyday file tools: a PDF, photo and simple browser tools"><meta property="og:locale" content="en_US"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="{escape(full_title)}"><meta name="twitter:description" content="{escape(search_description)}"><meta name="twitter:image" content="{SOCIAL_IMAGE}"><meta name="twitter:image:alt" content="HandyKit everyday file tools: a PDF, photo and simple browser tools"><title>{escape(full_title)}</title><link rel="stylesheet" href="{rootlink}assets/css/site.css"><script type="application/ld+json">{schema_json}</script><script type="module" src="{script}"></script></head>
 <body{data}>{site_header(depth)}<main>{body}</main>{footer(depth)}</body></html>'''
     file = ROOT / path
     file.parent.mkdir(parents=True, exist_ok=True)
@@ -107,7 +207,8 @@ def tool_page(tool):
     aside = f'''<aside class="tool-aside"><div class="side-card"><h3>What this tool does</h3><p>{escape(how)}</p><p class="privacy-note"><span aria-hidden="true">✳</span> On-device processing; this page does not upload your selected file.</p></div><div class="side-card"><h3>A small heads-up</h3><p>{'Try one file first. Very large images or PDFs can use a lot of phone memory.' if category != 'Quick' else 'Check the result before using it in a form or sharing it.'}</p><a class="text-link" href="{rootlink}tools/{category_slug}/">More {category.lower()} tools <span>→</span></a></div></aside>'''
     body = f'''<section class="wrap page-hero"><div class="breadcrumb"><a href="{rootlink}tools/">All tools</a><span>/</span><a href="{rootlink}tools/{category_slug}/">{escape(CATEGORIES[category][1])}</a><span>/</span><span>{escape(name)}</span></div><p class="eyebrow">{escape(category)} tool</p><h1>{escape(name)}</h1><p>{escape(desc)}</p></section>
 <section class="wrap tool-main"><div class="tool-layout"><section class="tool-panel" aria-label="{escape(name)} tool"><div class="tool-panel-head"><h2>{escape(button)}</h2><p>{escape(how)}</p></div><div class="tool-body">{upload}<div class="tool-status" id="toolStatus" role="status" aria-live="polite"></div><div class="progress-track" id="progressTrack" hidden><i id="progressBar"></i></div><div class="result-box" id="resultBox"><p class="result-title" id="resultTitle">Your file is ready</p><div class="result-content" id="resultContent"></div><div class="result-actions" id="resultActions"></div></div></div></section>{aside}</div></section>'''
-    write_page(f'tools/{slug}/index.html', name, desc, body, 2, slug, accept, multiple)
+    seo_title, seo_description = TOOL_SEO[slug]
+    write_page(f'tools/{slug}/index.html', name, desc, body, 2, slug, accept, multiple, seo_title=seo_title, seo_description=seo_description)
 
 
 # Complete tools directory.
@@ -118,7 +219,15 @@ for category, (slug, heading, desc, eyebrow) in CATEGORIES.items():
     all_body.extend(card(t, pre='../') for t in cat_tools)
     all_body.append('</div></section>')
 all_body.append('</section>')
-write_page('tools/index.html', 'All tools', 'Browse browser-based image, PDF, text, QR, and file helpers.', ''.join(all_body), 1)
+write_page(
+    'tools/index.html',
+    'All tools',
+    'Browse browser-based image, PDF, text, QR, and file helpers.',
+    ''.join(all_body),
+    1,
+    seo_title=ALL_TOOLS_SEO[0],
+    seo_description=ALL_TOOLS_SEO[1],
+)
 
 # Category landing pages.
 for category, (slug, heading, desc, eyebrow) in CATEGORIES.items():
@@ -126,7 +235,16 @@ for category, (slug, heading, desc, eyebrow) in CATEGORIES.items():
     body_parts = [f'<section class="wrap page-hero"><div class="breadcrumb"><a href="../../index.html">Home</a><span>/</span><a href="../../tools/">All tools</a><span>/</span><span>{escape(heading)}</span></div><p class="eyebrow">{escape(eyebrow)}</p><h1>{escape(heading)}.</h1><p>{escape(desc)}</p></section><section class="wrap tool-directory"><div class="tool-grid">']
     body_parts.extend(card(t) for t in cat_tools)
     body_parts.append('</div></section>')
-    write_page(f'tools/{slug}/index.html', heading, desc, ''.join(body_parts), 2)
+    seo_title, seo_description = CATEGORY_SEO[category]
+    write_page(
+        f'tools/{slug}/index.html',
+        heading,
+        desc,
+        ''.join(body_parts),
+        2,
+        seo_title=seo_title,
+        seo_description=seo_description,
+    )
 
 # Individual tool pages.
 for t in TOOLS:
@@ -147,6 +265,6 @@ def write_search_files():
 write_search_files()
 
 # Root public site notes.
-readme = '''# HandyKit — Everyday file tools\n\nHandyKit is a static prototype of a browser-based file toolbox. It is being built in stages; every tool page explains what it does and any format or device limitations.\n\n## Tools currently in the directory\n\n- Images: resize, compress, convert, crop/rotate, people-background removal, custom form photo/signature sizing, metadata removal, and photos-to-slideshow.\n- PDF: photos-to-PDF, merge, split/extract, rotate/reorder/delete pages, image-based compression, and PDF-to-images.\n- Quick helpers: ZIP/unzip, QR code, word counter, text cleaner, and JSON formatter.\n\n## Privacy and limits\n\nImage, PDF, and utility operations are designed to run in the browser on the user's device. Local AI background removal uses a person-segmentation model; it is not a universal object cut-out and may be slower on phones. PDF compression rasterizes pages, so the compressed copy will not retain selectable text. ZIP, video, and PDF work can use significant memory. The site does not claim official photo/signature sizes; users should enter current dimensions and file limits from the relevant form.\n\nNo file-format conversion is done by renaming an extension. The relevant tool decodes and writes a new output format. An exact target file size may not be possible without visible quality loss.\n\n## Local preview and build\n\nServe the static site from the repository root:\n\n```sh\npython3 -m http.server 8000 --bind 0.0.0.0 --directory public\n```\n\nBuild local vendor bundles and the PDF worker from the repository root:\n\n```sh\nnpm ci --prefix products/file-tools/tools\nnpm --prefix products/file-tools/tools run build\n```\n\nThe assets and app source live in `products/file-tools/`. Third-party licenses are listed in `public/THIRD-PARTY-NOTICES.txt`.\n\n## Publishing and search\n\nGitHub Pages publishes the `public/` folder from `main` using `.github/workflows/deploy-pages.yml`. The default project-site URL is `https://botboy45ak-cell.github.io/Ripo/`. `robots.txt` and `sitemap.xml` are generated with the HandyKit routes. After the first successful deployment, submit the sitemap in Google Search Console; indexing and ranking are not guaranteed.\n\n## Archived projects\n\nCueframe remains available under [`cueframe/`](cueframe/). The old Tutor Setup pages remain under [`tutor/`](tutor/) as an archive.\n'''
+readme = '''# HandyKit — Everyday file tools\n\nHandyKit is a static prototype of a browser-based file toolbox. It is being built in stages; every tool page explains what it does and any format or device limitations.\n\n## Tools currently in the directory\n\n- Images: resize, compress, convert, crop/rotate, people-background removal, custom form photo/signature sizing, metadata removal, and photos-to-slideshow.\n- PDF: photos-to-PDF, merge, split/extract, rotate/reorder/delete pages, image-based compression, and PDF-to-images.\n- Quick helpers: ZIP/unzip, QR code, word counter, text cleaner, and JSON formatter.\n\n## Privacy and limits\n\nImage, PDF, and utility operations are designed to run in the browser on the user's device. Local AI background removal uses a person-segmentation model; it is not a universal object cut-out and may be slower on phones. PDF compression rasterizes pages, so the compressed copy will not retain selectable text. ZIP, video, and PDF work can use significant memory. The site does not claim official photo/signature sizes; users should enter current dimensions and file limits from the relevant form.\n\nNo file-format conversion is done by renaming an extension. The relevant tool decodes and writes a new output format. An exact target file size may not be possible without visible quality loss.\n\n## Local preview and build\n\nServe the static site from the repository root:\n\n```sh\npython3 -m http.server 8000 --bind 0.0.0.0 --directory public\n```\n\nBuild local vendor bundles and the PDF worker from the repository root:\n\n```sh\nnpm ci --prefix products/file-tools/tools\nnpm --prefix products/file-tools/tools run build\n```\n\nThe assets and app source live in `products/file-tools/`. Third-party licenses are listed in `public/THIRD-PARTY-NOTICES.txt`.\n\n## Publishing and search\n\nNetlify publishes the `public/` folder as configured by `netlify.toml`; the primary HandyKit URL is `https://handykit-free-images-pdf-file-tools.netlify.app/`. The generated `robots.txt`, `sitemap.xml`, canonical URLs, and social metadata use that host. A separate GitHub Pages workflow is also present in the repository; do not submit its GitHub-hosted URLs under the Netlify Search Console property. After the updated Netlify deployment is live, submit `sitemap.xml` in Google Search Console; crawling and indexing are not guaranteed.\n\n## Archived projects\n\nCueframe remains available under [`cueframe/`](cueframe/). The old Tutor Setup pages remain under [`tutor/`](tutor/) as an archive.\n'''
 (ROOT / 'README.md').write_text(readme, encoding='utf-8')
 print(f'Generated {len(TOOLS)} individual tool pages and 4 directory/category pages.')
